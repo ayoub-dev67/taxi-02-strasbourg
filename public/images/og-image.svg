@@ -1,150 +1,97 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
-    <!-- Fond bordeaux avec dégradé subtil -->
     <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#7A3345"/>
-      <stop offset="50%" style="stop-color:#5C1A2A"/>
-      <stop offset="100%" style="stop-color:#7A3345"/>
+      <stop offset="0%" style="stop-color:#0A1628"/>
+      <stop offset="50%" style="stop-color:#060D1A"/>
+      <stop offset="100%" style="stop-color:#0A1628"/>
     </linearGradient>
-
-    <!-- Dégradé warm gold accent -->
-    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#F5E0CC"/>
-      <stop offset="25%" style="stop-color:#E8C9A8"/>
-      <stop offset="50%" style="stop-color:#D4A373"/>
-      <stop offset="75%" style="stop-color:#B07F4D"/>
-      <stop offset="100%" style="stop-color:#C4935F"/>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FFB800"/>
+      <stop offset="100%" style="stop-color:#FFC933"/>
     </linearGradient>
-
-    <!-- Gradient vertical pour effet de profondeur -->
-    <linearGradient id="goldVertical" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#D4A373"/>
-      <stop offset="100%" style="stop-color:#C4935F"/>
-    </linearGradient>
-
-    <!-- Pattern décoratif subtil -->
-    <pattern id="dotPattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-      <circle cx="20" cy="20" r="1" fill="rgba(212, 163, 115, 0.1)"/>
-    </pattern>
-
-    <!-- Ombre pour le texte -->
-    <filter id="textShadow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#D4A373" flood-opacity="0.3"/>
-    </filter>
-
-    <!-- Glow effect -->
     <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
       <feMerge>
         <feMergeNode in="coloredBlur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
+    <pattern id="dotPattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="20" r="1" fill="rgba(255,184,0,0.08)"/>
+    </pattern>
   </defs>
 
-  <!-- Background principal -->
+  <!-- Background -->
   <rect width="1200" height="630" fill="url(#bgGradient)"/>
-
-  <!-- Pattern décoratif -->
   <rect width="1200" height="630" fill="url(#dotPattern)"/>
 
-  <!-- Lignes décoratives verticales aux coins -->
-  <rect x="40" y="40" width="3" height="100" fill="url(#goldGrad)" rx="1.5"/>
-  <rect x="40" y="490" width="3" height="100" fill="url(#goldGrad)" rx="1.5"/>
-  <rect x="1157" y="40" width="3" height="100" fill="url(#goldGrad)" rx="1.5"/>
-  <rect x="1157" y="490" width="3" height="100" fill="url(#goldGrad)" rx="1.5"/>
+  <!-- Corner decorations -->
+  <rect x="40" y="40" width="4" height="80" fill="url(#accentGrad)" rx="2"/>
+  <rect x="40" y="40" width="80" height="4" fill="url(#accentGrad)" rx="2"/>
+  <rect x="1156" y="40" width="4" height="80" fill="url(#accentGrad)" rx="2"/>
+  <rect x="1080" y="40" width="80" height="4" fill="url(#accentGrad)" rx="2"/>
+  <rect x="40" y="510" width="4" height="80" fill="url(#accentGrad)" rx="2"/>
+  <rect x="40" y="586" width="80" height="4" fill="url(#accentGrad)" rx="2"/>
+  <rect x="1156" y="510" width="4" height="80" fill="url(#accentGrad)" rx="2"/>
+  <rect x="1080" y="586" width="80" height="4" fill="url(#accentGrad)" rx="2"/>
 
-  <!-- Lignes décoratives horizontales aux coins -->
-  <rect x="40" y="40" width="100" height="3" fill="url(#goldGrad)" rx="1.5"/>
-  <rect x="40" y="587" width="100" height="3" fill="url(#goldGrad)" rx="1.5"/>
-  <rect x="1060" y="40" width="100" height="3" fill="url(#goldGrad)" rx="1.5"/>
-  <rect x="1060" y="587" width="100" height="3" fill="url(#goldGrad)" rx="1.5"/>
-
-  <!-- Cercle décoratif avec glow -->
-  <circle cx="600" cy="180" r="60" fill="none" stroke="url(#goldGrad)" stroke-width="2" opacity="0.3"/>
-  <circle cx="600" cy="180" r="80" fill="none" stroke="url(#goldGrad)" stroke-width="1" opacity="0.2"/>
-
-  <!-- Logo Sb'Est - Texte principal -->
-  <text x="600" y="240"
-        font-family="'Playfair Display', Georgia, 'Times New Roman', serif"
-        font-size="120"
+  <!-- TAXI text -->
+  <text x="600" y="270"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="160"
         font-weight="700"
-        letter-spacing="8"
-        fill="url(#goldGrad)"
-        text-anchor="middle"
-        filter="url(#textShadow)">
-    Sb'Est
-  </text>
-
-  <!-- Logo Taxi -->
-  <text x="600" y="350"
-        font-family="'Playfair Display', Georgia, 'Times New Roman', serif"
-        font-size="100"
-        font-weight="700"
-        letter-spacing="6"
+        letter-spacing="20"
         fill="#FFFFFF"
         text-anchor="middle">
-    Taxi
+    TAXI
   </text>
 
-  <!-- Ligne de séparation -->
-  <rect x="350" y="380" width="500" height="4" fill="url(#goldGrad)" rx="2"/>
-
-  <!-- Tagline -->
-  <text x="600" y="440"
-        font-family="'Inter', Arial, Helvetica, sans-serif"
-        font-size="28"
-        font-weight="500"
-        fill="#FFFFFF"
+  <!-- 02 accent text -->
+  <text x="600" y="390"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="130"
+        font-weight="700"
+        letter-spacing="16"
+        fill="url(#accentGrad)"
         text-anchor="middle"
-        letter-spacing="2">
-    Votre taxi premium à Strasbourg
+        filter="url(#glow)">
+    02
+  </text>
+
+  <!-- Separator line -->
+  <rect x="300" y="415" width="600" height="3" fill="url(#accentGrad)" rx="1.5"/>
+
+  <!-- STRASBOURG -->
+  <text x="600" y="460"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="28"
+        font-weight="400"
+        letter-spacing="10"
+        fill="#6B7A99"
+        text-anchor="middle">
+    STRASBOURG
   </text>
 
   <!-- Badges -->
-  <g transform="translate(600, 490)">
-    <!-- Badge CPAM -->
-    <rect x="-180" y="-15" width="120" height="30" fill="rgba(212, 163, 115, 0.15)" stroke="url(#goldGrad)" stroke-width="1" rx="15"/>
-    <text x="-120" y="5"
-          font-family="'Inter', Arial, sans-serif"
-          font-size="12"
-          font-weight="600"
-          fill="#D4A373"
-          text-anchor="middle">
-      CONVENTIONNÉ CPAM
-    </text>
+  <g transform="translate(600, 520)">
+    <rect x="-250" y="-16" width="160" height="32" fill="rgba(255,184,0,0.12)" stroke="#FFB800" stroke-width="1" rx="16"/>
+    <text x="-170" y="5" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#FFB800" text-anchor="middle">CONVENTIONNÉ CPAM</text>
 
-    <!-- Badge 24/7 -->
-    <rect x="-55" y="-15" width="110" height="30" fill="rgba(212, 163, 115, 0.15)" stroke="url(#goldGrad)" stroke-width="1" rx="15"/>
-    <text x="0" y="5"
-          font-family="'Inter', Arial, sans-serif"
-          font-size="12"
-          font-weight="600"
-          fill="#D4A373"
-          text-anchor="middle">
-      DISPONIBLE 24H/24
-    </text>
+    <rect x="-70" y="-16" width="140" height="32" fill="rgba(255,184,0,0.12)" stroke="#FFB800" stroke-width="1" rx="16"/>
+    <text x="0" y="5" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#FFB800" text-anchor="middle">DISPONIBLE 24H/24</text>
 
-    <!-- Badge Premium -->
-    <rect x="60" y="-15" width="120" height="30" fill="rgba(212, 163, 115, 0.15)" stroke="url(#goldGrad)" stroke-width="1" rx="15"/>
-    <text x="120" y="5"
-          font-family="'Inter', Arial, sans-serif"
-          font-size="12"
-          font-weight="600"
-          fill="#D4A373"
-          text-anchor="middle">
-      SERVICE PREMIUM
-    </text>
+    <rect x="90" y="-16" width="160" height="32" fill="rgba(255,184,0,0.12)" stroke="#FFB800" stroke-width="1" rx="16"/>
+    <text x="170" y="5" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#FFB800" text-anchor="middle">AÉROPORT • GARE • CPAM</text>
   </g>
 
-  <!-- Numéro de téléphone -->
-  <text x="600" y="565"
-        font-family="'Playfair Display', Georgia, serif"
-        font-size="42"
+  <!-- Phone number -->
+  <text x="600" y="590"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="38"
         font-weight="700"
-        fill="url(#goldGrad)"
+        fill="url(#accentGrad)"
         text-anchor="middle"
         filter="url(#glow)">
-    07 45 11 09 70
+    07 53 14 53 71
   </text>
 </svg>
