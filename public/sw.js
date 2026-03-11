@@ -1,5 +1,5 @@
-// Sb'Est Taxi Service Worker
-const CACHE_NAME = "taxi-sbest-v1";
+// Taxi 02 Strasbourg Service Worker
+const CACHE_NAME = "taxi-02-v1";
 const OFFLINE_URL = "/offline.html";
 
 // Pages to cache
@@ -91,7 +91,7 @@ self.addEventListener("fetch", (event) => {
 // Handle push notifications (future use)
 self.addEventListener("push", (event) => {
   const data = event.data?.json() ?? {};
-  const title = data.title || "Sb'Est Taxi";
+  const title = data.title || "Taxi 02 Strasbourg";
   const options = {
     body: data.body || "Nouvelle notification",
     icon: "/icons/icon-192x192.png",

@@ -68,8 +68,8 @@ export default function ZonesPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
               <div className="relative h-64 md:h-80">
                 <Image
-                  src="/images/photos/vehicule-2.jpg"
-                  alt="Taxi 02 Strasbourg desservant toute l'Eurométropole de Strasbourg"
+                  src="/images/vehicule/vehicule-urgences.png"
+                  alt="Taxi conventionné CPAM Strasbourg — transport médical"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"

@@ -189,8 +189,8 @@ export default function TarifsPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
               <div className="relative h-64 md:h-80">
                 <Image
-                  src="/images/photos/vehicule-1.jpg"
-                  alt="Véhicule taxi Taxi 02 Strasbourg — Tarifs transparents et réglementés"
+                  src="/images/vehicule/vehicule-parlement-europeen.png"
+                  alt="Taxi 02 Strasbourg — flotte devant le Parlement Européen"
                   fill
                   className="object-cover rounded-lg"
                   sizes="(max-width: 768px) 100vw, 50vw"

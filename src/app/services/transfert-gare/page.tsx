@@ -115,8 +115,8 @@ export default function TransfertGarePage() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/photos/vehicule-3.jpg"
-            alt="Transfert taxi gare Strasbourg — Taxi 02 Strasbourg"
+            src="/images/vehicule/vehicule-gare.png"
+            alt="Taxi Strasbourg gare centrale — transfert rapide"
             fill
             className="object-cover"
             priority

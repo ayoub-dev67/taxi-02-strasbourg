@@ -25,10 +25,10 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Taxi 02 Strasbourg — Taxi Conventionné CPAM Strasbourg 24h/24",
+    default: "Taxi 02 Strasbourg | Taxi & Transport CPAM",
     template: "%s",
   },
-  description: siteConfig.description,
+  description: "Taxi 02 Strasbourg — Transport CPAM conventionné, aéroport, gare, longue distance et EuropaPark. Réservation 24h/24.",
   keywords: siteConfig.keywords,
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
@@ -37,23 +37,23 @@ export const metadata: Metadata = {
     type: "website",
     locale: "fr_FR",
     url: siteConfig.url,
-    title: "Taxi 02 Strasbourg — Taxi Conventionné CPAM Strasbourg",
-    description: "Taxi conventionné CPAM Strasbourg. Transport médical, transferts aéroport et gare, longue distance. Disponible 24h/24.",
+    title: "Taxi 02 Strasbourg | Taxi & Transport CPAM",
+    description: "Taxi 02 Strasbourg — Transport CPAM conventionné, aéroport, gare, longue distance et EuropaPark. Réservation 24h/24.",
     siteName: siteConfig.name,
     images: [
       {
-        url: "/images/photos/vehicule-1.jpg",
+        url: "/images/vehicule/vehicule-parlement-europeen.png",
         width: 1200,
         height: 630,
-        alt: "Taxi 02 Strasbourg — Taxi conventionné CPAM",
+        alt: "Taxi 02 Strasbourg — flotte devant le Parlement Européen",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Taxi 02 Strasbourg — Taxi Conventionné CPAM Strasbourg",
-    description: "Taxi conventionné CPAM Strasbourg. Transport médical, transferts aéroport et gare, longue distance. Disponible 24h/24.",
-    images: ["/images/photos/vehicule-1.jpg"],
+    title: "Taxi 02 Strasbourg | Taxi & Transport CPAM",
+    description: "Taxi 02 Strasbourg — Transport CPAM conventionné, aéroport, gare, longue distance et EuropaPark. Réservation 24h/24.",
+    images: ["/images/vehicule/vehicule-parlement-europeen.png"],
   },
   robots: {
     index: true,

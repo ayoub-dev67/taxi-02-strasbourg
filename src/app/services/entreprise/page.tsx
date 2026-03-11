@@ -155,8 +155,8 @@ export default function EntreprisePage() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/photos/vehicule-1.jpg"
-            alt="Service taxi entreprise Strasbourg — véhicule Taxi 02 Strasbourg"
+            src="/images/vehicule/vehicule-parlement-europeen.png"
+            alt="Taxi 02 Strasbourg — flotte devant le Parlement Européen"
             fill
             className="object-cover"
             priority

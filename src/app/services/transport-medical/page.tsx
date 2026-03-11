@@ -151,8 +151,8 @@ export default function TransportMedicalPage() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/images/photos/vehicule-2.jpg"
-            alt="Transport médical conventionné CPAM Strasbourg — Taxi 02 Strasbourg"
+            src="/images/vehicule/vehicule-urgences.png"
+            alt="Taxi conventionné CPAM Strasbourg — transport médical"
             fill
             className="object-cover"
             priority

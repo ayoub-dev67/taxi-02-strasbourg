@@ -67,7 +67,7 @@ export const siteConfig = {
   // Images
   images: {
     logo: "/images/logo.svg",
-    ogImage: "/images/photos/vehicule-1.jpg",
+    ogImage: "/images/vehicule/vehicule-parlement-europeen.png",
     hero: "/images/hero-bg.webp",
   },
 };

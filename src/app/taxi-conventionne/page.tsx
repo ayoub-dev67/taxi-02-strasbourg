@@ -85,8 +85,8 @@ export default function TaxiConventionnePage() {
           <div className="max-w-4xl mx-auto">
             <div className="relative h-64 sm:h-80 md:h-96 rounded-2xl overflow-hidden shadow-xl">
               <Image
-                src="/images/photos/vehicule-3.jpg"
-                alt="Taxi 02 Strasbourg — service de taxi conventionné dans l'Eurométropole de Strasbourg"
+                src="/images/vehicule/vehicule-gare.png"
+                alt="Taxi Strasbourg gare centrale — transfert rapide"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 896px"
