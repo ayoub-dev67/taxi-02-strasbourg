@@ -6,7 +6,7 @@ export default function Loading() {
         <div className="mb-8">
           <span className="text-3xl font-heading font-bold">
             <span className="text-foreground">TAXI</span>{" "}
-            <span className="text-gold-gradient">BRK</span>
+            <span className="text-gold-gradient">02</span>
           </span>
         </div>
 
