@@ -66,10 +66,7 @@ export function HeroSection() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight"
           >
-            Votre{" "}
-            <span className="text-white">Taxi</span>
-            <br className="hidden sm:block" />
-            <span className="sm:hidden"> </span>à Strasbourg
+            Taxi 02 Strasbourg
           </motion.h1>
 
           {/* Sous-titre avec points clés */}
@@ -79,11 +76,7 @@ export function HeroSection() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-lg sm:text-xl text-white mb-8 max-w-2xl mx-auto font-medium"
           >
-            <span className="text-white">Transport premium 24h/24</span>
-            {" • "}
-            <span className="text-white">Conventionné CPAM</span>
-            {" • "}
-            <span className="text-gold-400">6 ans d&apos;expérience</span>
+            Votre chauffeur de confiance à Strasbourg — Transport médical CPAM, aéroport, gare et longue distance. Disponible 24h/24, 7j/7.
           </motion.p>
 
           {/* CTA Buttons - Stack on mobile */}
@@ -128,10 +121,9 @@ export function HeroSection() {
             className="flex flex-wrap items-center justify-center gap-6 md:gap-8"
           >
             {[
-              { icon: Shield, text: "Conventionné CPAM" },
-              { icon: Clock, text: "Disponible 24h/24" },
-              { icon: Luggage, text: "Grand coffre" },
-              { icon: Route, text: "Toutes distances" },
+              { icon: Shield, text: "Conventionné Assurance Maladie" },
+              { icon: Clock, text: "Tarifs préfectoraux" },
+              { icon: Route, text: "Prise en charge immédiate" },
             ].map((item, index) => (
               <motion.div
                 key={index}

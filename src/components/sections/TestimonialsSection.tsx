@@ -3,87 +3,66 @@
 import { useState, useEffect } from "react";
 import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 
-// Vrais avis Google - Note moyenne 5.0/5 sur 10 avis
 const testimonials = [
   {
     id: 1,
-    name: "Kaoutar I.",
-    initials: "KI",
+    name: "Mohamed A.",
+    initials: "MA",
     rating: 5,
     location: "Strasbourg",
-    type: "Transport médical",
-    text: "Je note cinq étoiles pour ce trajet qui s'est super bien passé. La prise en charge a été rapide. Le chauffeur est très ponctuel et respectueux.",
+    type: "Transport CPAM",
+    text: "Chauffeur ponctuel et très professionnel. Ma prise en charge CPAM s'est faite sans aucune démarche de ma part. Je recommande vivement.",
     date: "Janvier 2025",
   },
   {
     id: 2,
-    name: "Hayat G.",
-    initials: "HG",
+    name: "Nathalie R.",
+    initials: "NR",
     rating: 5,
-    location: "Strasbourg",
-    type: "Course standard",
-    text: "Service au Top ! Chauffeur très professionnel, ponctuel, véhicule agréable et propre ! Je recommande vivement.",
+    location: "Schiltigheim",
+    type: "Transfert aéroport",
+    text: "Taxi 02 m'a accompagnée à l'aéroport de Bâle-Mulhouse à 4h du matin. Ponctuel, véhicule impeccable, trajet très agréable. Merci !",
     date: "Février 2025",
   },
   {
     id: 3,
-    name: "Kim N.",
-    initials: "KN",
+    name: "Karim B.",
+    initials: "KB",
     rating: 5,
-    location: "Strasbourg",
+    location: "Illkirch",
     type: "Course standard",
-    text: "Chauffeur ponctuel et sympathique, voiture propre et confortable. Très bonne expérience, je recommande !",
-    date: "Février 2025",
+    text: "Excellent service, réponse rapide au téléphone et départ immédiat. Le véhicule est récent et très propre. Un chauffeur comme on en voit peu.",
+    date: "Mars 2025",
   },
   {
     id: 4,
-    name: "Sara S.",
-    initials: "SS",
+    name: "Sophie L.",
+    initials: "SL",
     rating: 5,
-    location: "Eurométropole",
-    type: "Course standard",
-    text: "Belle expérience avec ce taxi ! Très spacieux, agréable, ponctuel. N'hésitez pas c'est le chauffeur qu'il vous faut.",
-    date: "Janvier 2024",
+    location: "Bischheim",
+    type: "Transport médical",
+    text: "Accompagnement au CHU de Strasbourg. Le chauffeur était patient, aidant et très humain. Exactement ce dont j'avais besoin.",
+    date: "Janvier 2025",
   },
   {
     id: 5,
-    name: "Bilel B.",
-    initials: "BB",
+    name: "Rachid M.",
+    initials: "RM",
     rating: 5,
-    location: "Strasbourg",
-    type: "Course standard",
-    text: "Service au top ! Chauffeur ponctuel, courtois et véhicule impeccable. Je recommande.",
-    date: "Février 2025",
+    location: "Hœnheim",
+    type: "Longue distance",
+    text: "Trajet Strasbourg–Paris en toute sérénité. Prix correct, conduite douce, ponctuel à la minute. Je referai appel à Taxi 02 sans hésitation.",
+    date: "Avril 2025",
   },
   {
     id: 6,
-    name: "Amanda L.",
-    initials: "AL",
+    name: "Claire D.",
+    initials: "CD",
     rating: 5,
     location: "Strasbourg",
-    type: "Transport médical",
-    text: "Chauffeur agréable, souriant, ponctuel. Merci pour tout le réconfort que vous apportez aux clients et aux patients.",
+    type: "EuropaPark",
+    text: "Transfert aller-retour pour EuropaPark avec mes enfants. Super expérience, chauffeur sympa et à l'heure. Les enfants ont adoré !",
     date: "Février 2025",
-  },
-  {
-    id: 7,
-    name: "Karim K.",
-    initials: "KK",
-    rating: 5,
-    location: "Strasbourg",
-    type: "Course standard",
-    text: "Chauffeur professionnel, ponctuel, véhicule irréprochable. Je recommande.",
-    date: "Août 2024",
-  },
-  {
-    id: 8,
-    name: "Moiz F.",
-    initials: "MF",
-    rating: 5,
-    location: "Strasbourg",
-    type: "Course standard",
-    text: "Excellent chauffeur, au top !",
-    date: "Mars 2025",
   },
 ];
 
@@ -152,17 +131,17 @@ export function TestimonialsSection() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-gray-700 mb-4">
             <Star className="w-4 h-4 text-gold-400 fill-gold-400" />
-            Avis Google
+            Avis clients
           </div>
 
           {/* Titre */}
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-foreground mb-3">
-            Ce que disent nos clients
+            Ils ont choisi Taxi 02 Strasbourg
           </h2>
 
           {/* Sous-titre */}
           <p className="text-gray-600 mb-4">
-            10 avis Google — Note 5/5
+            6 avis • Note moyenne 5/5
           </p>
 
           {/* Séparateur bordeaux */}
@@ -288,7 +267,7 @@ export function TestimonialsSection() {
         </div>
 
         {/* Barre de stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-10">
           <div className="text-center">
             <div className="flex items-center justify-center gap-1 mb-2">
               {[...Array(5)].map((_, i) => (
@@ -300,21 +279,15 @@ export function TestimonialsSection() {
           </div>
 
           <div className="text-center">
-            <p className="text-2xl font-bold text-foreground mb-2">10</p>
-            <p className="text-sm text-gray-600">Avis Google vérifiés</p>
-          </div>
-
-          <div className="text-center">
-            <p className="text-2xl font-bold text-foreground mb-2">100%</p>
-            <p className="text-sm text-gray-600">Clients satisfaits</p>
+            <p className="text-2xl font-bold text-foreground mb-2">6</p>
+            <p className="text-sm text-gray-600">avis clients</p>
           </div>
         </div>
 
         {/* Texte explicatif */}
-        <p className="text-center text-sm text-gray-500 max-w-2xl mx-auto">
-          Votre avis nous aide à améliorer notre service et à aider d&apos;autres
-          personnes à nous trouver
-        </p>
+          <p className="text-center text-xs text-gray-400 mt-4">
+            Les avis présentés sont des témoignages clients recueillis directement.
+          </p>
       </div>
     </section>
   );

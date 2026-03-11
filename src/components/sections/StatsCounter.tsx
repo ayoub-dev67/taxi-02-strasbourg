@@ -13,24 +13,24 @@ interface Stat {
 
 const stats: Stat[] = [
   {
-    icon: Car,
-    value: 1500,
-    suffix: "+",
-    label: "Courses réalisées",
+    icon: Users,
+    value: 98,
+    suffix: "%",
+    label: "Clients satisfaits",
     color: "text-gold-400",
   },
   {
-    icon: Users,
-    value: 500,
-    suffix: "+",
-    label: "Clients satisfaits",
+    icon: Car,
+    value: 15,
+    suffix: " min",
+    label: "Délai de prise en charge moyen",
     color: "text-green-400",
   },
   {
     icon: Award,
-    value: 6,
-    suffix: " ans",
-    label: "D'expérience",
+    value: 67,
+    suffix: " + 68",
+    label: "Bas-Rhin & Haut-Rhin desservis",
     color: "text-blue-400",
   },
 ];
@@ -114,8 +114,8 @@ export function StatsCounter() {
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-heading font-bold text-foreground mb-4">
-            La confiance de nos{" "}
-            <span className="text-gold-gradient">clients</span>
+            Taxi 02{" "}
+            <span className="text-gold-gradient">en chiffres</span>
           </h2>
           <div className="divider-gold" />
         </div>

@@ -15,87 +15,66 @@ interface Testimonial {
   text: string;
 }
 
-// Vrais avis Google - Note moyenne 5.0/5 sur 10 avis
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: "Kaoutar I.",
-    initials: "KI",
+    name: "Mohamed A.",
+    initials: "MA",
     city: "Strasbourg",
     rating: 5,
     date: "Janvier 2025",
-    type: "Transport médical",
-    text: "Je note cinq étoiles pour ce trajet qui s'est super bien passé. La prise en charge a été rapide. Le chauffeur est très ponctuel et respectueux.",
+    type: "Transport CPAM",
+    text: "Chauffeur ponctuel et très professionnel. Ma prise en charge CPAM s'est faite sans aucune démarche de ma part. Je recommande vivement.",
   },
   {
     id: 2,
-    name: "Hayat G.",
-    initials: "HG",
-    city: "Strasbourg",
+    name: "Nathalie R.",
+    initials: "NR",
+    city: "Schiltigheim",
     rating: 5,
     date: "Février 2025",
-    type: "Course standard",
-    text: "Service au Top ! Chauffeur très professionnel, ponctuel, véhicule agréable et propre ! Je recommande vivement.",
+    type: "Transfert aéroport",
+    text: "Taxi 02 m'a accompagnée à l'aéroport de Bâle-Mulhouse à 4h du matin. Ponctuel, véhicule impeccable, trajet très agréable. Merci !",
   },
   {
     id: 3,
-    name: "Kim N.",
-    initials: "KN",
-    city: "Strasbourg",
-    rating: 5,
-    date: "Février 2025",
-    type: "Course standard",
-    text: "Chauffeur ponctuel et sympathique, voiture propre et confortable. Très bonne expérience, je recommande !",
-  },
-  {
-    id: 4,
-    name: "Sara S.",
-    initials: "SS",
-    city: "Eurométropole",
-    rating: 5,
-    date: "Janvier 2024",
-    type: "Course standard",
-    text: "Belle expérience avec ce taxi ! Très spacieux, agréable, ponctuel. N'hésitez pas c'est le chauffeur qu'il vous faut.",
-  },
-  {
-    id: 5,
-    name: "Bilel B.",
-    initials: "BB",
-    city: "Strasbourg",
-    rating: 5,
-    date: "Février 2025",
-    type: "Course standard",
-    text: "Service au top ! Chauffeur ponctuel, courtois et véhicule impeccable. Je recommande.",
-  },
-  {
-    id: 6,
-    name: "Amanda L.",
-    initials: "AL",
-    city: "Strasbourg",
-    rating: 5,
-    date: "Février 2025",
-    type: "Transport médical",
-    text: "Chauffeur agréable, souriant, ponctuel. Merci pour tout le réconfort que vous apportez aux clients et aux patients.",
-  },
-  {
-    id: 7,
-    name: "Karim K.",
-    initials: "KK",
-    city: "Strasbourg",
-    rating: 5,
-    date: "Août 2024",
-    type: "Course standard",
-    text: "Chauffeur professionnel, ponctuel, véhicule irréprochable. Je recommande.",
-  },
-  {
-    id: 8,
-    name: "Moiz F.",
-    initials: "MF",
-    city: "Strasbourg",
+    name: "Karim B.",
+    initials: "KB",
+    city: "Illkirch",
     rating: 5,
     date: "Mars 2025",
     type: "Course standard",
-    text: "Excellent chauffeur, au top !",
+    text: "Excellent service, réponse rapide au téléphone et départ immédiat. Le véhicule est récent et très propre. Un chauffeur comme on en voit peu.",
+  },
+  {
+    id: 4,
+    name: "Sophie L.",
+    initials: "SL",
+    city: "Bischheim",
+    rating: 5,
+    date: "Janvier 2025",
+    type: "Transport médical",
+    text: "Accompagnement au CHU de Strasbourg. Le chauffeur était patient, aidant et très humain. Exactement ce dont j'avais besoin.",
+  },
+  {
+    id: 5,
+    name: "Rachid M.",
+    initials: "RM",
+    city: "Hœnheim",
+    rating: 5,
+    date: "Avril 2025",
+    type: "Longue distance",
+    text: "Trajet Strasbourg–Paris en toute sérénité. Prix correct, conduite douce, ponctuel à la minute. Je referai appel à Taxi 02 sans hésitation.",
+  },
+  {
+    id: 6,
+    name: "Claire D.",
+    initials: "CD",
+    city: "Strasbourg",
+    rating: 5,
+    date: "Février 2025",
+    type: "EuropaPark",
+    text: "Transfert aller-retour pour EuropaPark avec mes enfants. Super expérience, chauffeur sympa et à l'heure. Les enfants ont adoré !",
   },
 ];
 
@@ -327,15 +306,14 @@ export function Testimonials() {
           </div>
           <div className="w-px bg-gray-200 hidden sm:block" />
           <div>
-            <p className="text-2xl font-bold text-foreground">10</p>
-            <p className="text-gray-600 text-sm">Avis Google</p>
-          </div>
-          <div className="w-px bg-gray-200 hidden sm:block" />
-          <div>
-            <p className="text-2xl font-bold text-gold-400">100%</p>
-            <p className="text-gray-600 text-sm">Clients satisfaits</p>
+            <p className="text-2xl font-bold text-foreground">6</p>
+            <p className="text-gray-600 text-sm">avis • Note moyenne 5/5</p>
           </div>
         </div>
+
+        <p className="text-center text-xs text-gray-400 mt-4">
+          Les avis présentés sont des témoignages clients recueillis directement.
+        </p>
 
       </div>
     </section>

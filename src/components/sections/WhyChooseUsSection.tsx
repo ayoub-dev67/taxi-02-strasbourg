@@ -6,39 +6,39 @@ import { Shield, Clock, CreditCard, Award, Luggage, Route } from "lucide-react";
 const features = [
   {
     icon: Shield,
-    title: "Conventionné CPAM",
+    title: "Transport CPAM sans avance de frais",
     description:
-      "Taxi agréé par la Sécurité Sociale. Prise en charge de vos frais de transport médical sur prescription.",
+      "Taxi conventionné Assurance Maladie. Sur prescription médicale, vos frais de transport sont pris en charge directement par la Sécu.",
   },
   {
     icon: Clock,
-    title: "Disponible 24h/24",
+    title: "Réactivité 24h/24",
     description:
-      "Service de taxi disponible jour et nuit, 7 jours sur 7, y compris les jours fériés.",
-  },
-  {
-    icon: CreditCard,
-    title: "Tarifs Officiels",
-    description:
-      "Tarifs réglementés par la Préfecture du Bas-Rhin. Transparence totale sur les prix.",
-  },
-  {
-    icon: Award,
-    title: "Chauffeur Expérimenté",
-    description:
-      "Chauffeur professionnel, courtois et ponctuel. Connaissance parfaite de Strasbourg et sa région.",
+      "Disponible à toute heure, même les week-ends et jours fériés. Un appel suffit pour une prise en charge rapide à Strasbourg.",
   },
   {
     icon: Luggage,
-    title: "Véhicule Grand Coffre",
+    title: "Flotte récente & confortable",
     description:
-      "Espace généreux pour vos bagages, poussettes, fauteuils roulants pliants et équipements volumineux.",
+      "Véhicules Toyota et DS récents, climatisés, grand coffre. Idéal pour vos bagages, équipements médicaux ou fauteuil roulant pliant.",
+  },
+  {
+    icon: CreditCard,
+    title: "Tarifs transparents",
+    description:
+      "Tarifs officiels réglementés par la Préfecture du Bas-Rhin. Aucune mauvaise surprise — le compteur fait foi.",
   },
   {
     icon: Route,
-    title: "Toutes Distances",
+    title: "Strasbourg & toute l'Alsace",
     description:
-      "Strasbourg, Alsace, France et international. Nous vous transportons partout, sans limite de distance.",
+      "Bas-Rhin, Haut-Rhin, départs vers Paris, Lyon, Francfort. Taxi 02 vous accompagne partout, sans limite de distance.",
+  },
+  {
+    icon: Award,
+    title: "Chauffeur professionnel agréé",
+    description:
+      "Carte professionnelle préfectorale, véhicule contrôlé, assurance RC Pro. Votre sécurité est notre priorité absolue.",
   },
 ];
 
@@ -63,7 +63,7 @@ export function WhyChooseUsSection() {
             transition={{ delay: 0.1 }}
             className="section-title"
           >
-            Pourquoi <span className="section-title-gold">1500+ Strasbourgeois</span> Nous Font Confiance
+            Ce qui fait la <span className="section-title-gold">différence avec Taxi 02</span>
           </motion.h2>
           <div className="divider-gold" />
         </div>
