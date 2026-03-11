@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Menu, X, ChevronDown } from "lucide-react";
@@ -18,7 +17,7 @@ export function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 80);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -35,22 +34,32 @@ export function Header() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           isScrolled
-            ? "bg-surface/95 backdrop-blur-lg border-b border-gold-400/20 py-3"
+            ? "bg-white shadow-md border-b border-gray-200 py-3"
             : "bg-transparent py-4"
         )}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="flex items-center">
-              <Image
-                src="/images/logo.svg"
-                alt="Taxi 02 Strasbourg — Taxi conventionné Strasbourg"
-                width={150}
-                height={50}
-                priority
-                className="h-10 sm:h-12 w-auto"
-              />
+            <Link href="/" className="flex items-center gap-1 select-none" aria-label="Taxi 02 Strasbourg — accueil">
+              <span className={cn(
+                "text-2xl sm:text-3xl font-extrabold tracking-wide leading-none",
+                isScrolled ? "text-[#0A1628]" : "text-[#FFB800]"
+              )}>
+                TAXI
+              </span>
+              <span className={cn(
+                "text-2xl sm:text-3xl font-extrabold tracking-wide leading-none ml-1",
+                isScrolled ? "text-[#FFB800]" : "text-white"
+              )}>
+                02
+              </span>
+              <span className={cn(
+                "hidden sm:block text-[10px] font-medium tracking-[0.2em] uppercase ml-2 self-end pb-0.5",
+                isScrolled ? "text-[#0A1628]" : "text-white"
+              )}>
+                Strasbourg
+              </span>
             </Link>
 
             {/* Navigation Desktop */}

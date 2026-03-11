@@ -8,7 +8,7 @@ export const siteConfig = {
 
   // Coordonnées
   contact: {
-    phone: "+33753145371",
+    phone: "07 53 14 53 71",
     phoneLink: "+33753145371",
     email: "contact@taxi-02-strasbourg.fr",
     whatsapp: "33753145371",

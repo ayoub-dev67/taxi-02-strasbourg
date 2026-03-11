@@ -1,3 +1,4 @@
+import ConventionneSection from "@/components/sections/ConventionneSection";
 import {
   HeroSection,
   ServicesSection,
@@ -13,6 +14,7 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <ConventionneSection />
       <TrustBadges />
       <ServicesSection />
       <StatsCounter />
