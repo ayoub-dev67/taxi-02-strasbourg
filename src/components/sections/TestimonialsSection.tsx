@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Star, ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
+import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 
 // Vrais avis Google - Note moyenne 5.0/5 sur 10 avis
 const testimonials = [
@@ -308,33 +308,6 @@ export function TestimonialsSection() {
             <p className="text-2xl font-bold text-foreground mb-2">100%</p>
             <p className="text-sm text-gray-600">Clients satisfaits</p>
           </div>
-        </div>
-
-        {/* Boutons CTA */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
-          {/* Bouton 1: Voir tous les avis */}
-          <a
-            href="https://g.page/r/CQfez_KofyccEBM/review"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gold-400 text-white rounded-lg font-semibold hover:bg-gold-500 transition-all duration-300 shadow-md hover:shadow-lg"
-          >
-            <GoogleLogo className="w-5 h-5" />
-            Voir tous les avis sur Google
-            <ExternalLink className="w-4 h-4" />
-          </a>
-
-          {/* Bouton 2: Laissez-nous un avis */}
-          <a
-            href="https://g.page/r/CQfez_KofyccEBM/review"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-white border-2 border-gold-400 text-gold-400 rounded-lg font-semibold hover:bg-gold-400 hover:text-white transition-all duration-300"
-          >
-            <GoogleLogo className="w-5 h-5" />
-            Laissez-nous un avis
-            <Star className="w-4 h-4" />
-          </a>
         </div>
 
         {/* Texte explicatif */}

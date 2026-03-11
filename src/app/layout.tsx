@@ -34,26 +34,26 @@ export const metadata: Metadata = {
   creator: siteConfig.name,
   metadataBase: new URL(siteConfig.url),
   openGraph: {
-    type: "website",
-    locale: "fr_FR",
-    url: siteConfig.url,
-    title: "Taxi 02 Strasbourg | Taxi & Transport CPAM",
-    description: "Taxi 02 Strasbourg — Transport CPAM conventionné, aéroport, gare, longue distance et EuropaPark. Réservation 24h/24.",
-    siteName: siteConfig.name,
+    title: 'Taxi 02 Strasbourg | Taxi & Transport CPAM',
+    description: 'Taxi 02 Strasbourg — Transport CPAM conventionné, aéroport, gare, longue distance et EuropaPark. Réservation 24h/24.',
+    url: 'https://taxi-02-strasbourg.fr',
+    siteName: 'Taxi 02 Strasbourg',
     images: [
       {
-        url: "/images/vehicule/vehicule-parlement-europeen.png",
+        url: 'https://taxi-02-strasbourg.fr/images/vehicule/vehicule-parlement-europeen.png',
         width: 1200,
         height: 630,
-        alt: "Taxi 02 Strasbourg — flotte devant le Parlement Européen",
+        alt: 'Taxi 02 Strasbourg — Flotte de taxis devant le Parlement Européen',
       },
     ],
+    locale: 'fr_FR',
+    type: 'website',
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Taxi 02 Strasbourg | Taxi & Transport CPAM",
-    description: "Taxi 02 Strasbourg — Transport CPAM conventionné, aéroport, gare, longue distance et EuropaPark. Réservation 24h/24.",
-    images: ["/images/vehicule/vehicule-parlement-europeen.png"],
+    card: 'summary_large_image',
+    title: 'Taxi 02 Strasbourg | Taxi & Transport CPAM',
+    description: 'Taxi 02 Strasbourg — Transport CPAM conventionné, aéroport, gare, longue distance et EuropaPark.',
+    images: ['https://taxi-02-strasbourg.fr/images/vehicule/vehicule-parlement-europeen.png'],
   },
   robots: {
     index: true,
@@ -68,14 +68,11 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/icons/icon.svg", type: "image/svg+xml" },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: '32x32' },
     ],
-    apple: [
-      { url: "/icons/icon-192x192.svg", sizes: "180x180", type: "image/svg+xml" },
-    ],
-    other: [
-      { rel: "mask-icon", url: "/icons/icon.svg", color: "#7A3345" },
-    ],
+    apple: '/favicon.svg',
+    shortcut: '/favicon.svg',
   },
   manifest: "/manifest.webmanifest",
   verification: {

@@ -301,8 +301,8 @@ export default async function ZonePage({ params }: PageProps) {
           <div className="card-premium max-w-4xl mx-auto overflow-hidden p-0">
             <div className="relative h-64 sm:h-80 md:h-96">
               <Image
-                src={`/images/photos/vehicule-${zone.tier || 1}.jpg`}
-                alt={`Taxi 02 Strasbourg desservant ${zone.name} — véhicule professionnel`}
+                src="/images/hero-bg.jpg"
+                alt={`Taxi 02 Strasbourg — service taxi ${zone.name}`}
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 896px"
