@@ -1,16 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
-// Initialiser Resend
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
-
-const TAXI_EMAIL = "contact@taxi-02-strasbourg.fr";
 
 export async function POST(request: NextRequest) {
   try {
     const data = await request.json();
 
-    // Validation
     if (!data.nom || !data.email || !data.message) {
       return NextResponse.json(
         { success: false, error: "Champs requis manquants" },
@@ -18,7 +14,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Validation email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(data.email)) {
       return NextResponse.json(
@@ -33,22 +28,38 @@ export async function POST(request: NextRequest) {
     console.log("===============================");
 
     if (resend) {
-      try {
-        await resend.emails.send({
-          from: "Taxi 02 Strasbourg <contact@taxi-02-strasbourg.fr>",
-          to: "taxi02strasbourg@gmail.com",
-          replyTo: "contact@taxi-02-strasbourg.fr",
-          subject: `Nouveau message contact — ${data.nom}`,
-          html: generateContactEmailTemplate(data),
-        });
-        console.log("✅ Email contact envoyé à", TAXI_EMAIL);
-      } catch (error) {
-        const errorMessage = error instanceof Error ? error.message : "Erreur inconnue";
-        console.error("❌ Erreur envoi email contact:", errorMessage);
-        // On renvoie quand même 200 pour ne pas bloquer l'UX
+      // Email chauffeur (notification) — toujours envoyé
+      const chauffeurPromise = resend.emails.send({
+        from: "Taxi 02 Strasbourg <contact@taxi-02-strasbourg.fr>",
+        to: "taxi02strasbourg@gmail.com",
+        replyTo: "contact@taxi-02-strasbourg.fr",
+        subject: `🚖 Nouvelle demande — ${data.nom}`,
+        html: generateNotificationEmail(data),
+      });
+
+      // Email client (confirmation) — envoyé en parallèle
+      const clientPromise = resend.emails.send({
+        from: "Taxi 02 Strasbourg <contact@taxi-02-strasbourg.fr>",
+        to: data.email,
+        replyTo: "contact@taxi-02-strasbourg.fr",
+        subject: "✅ Demande reçue — Taxi 02 Strasbourg",
+        html: generateConfirmationEmail(data),
+      });
+
+      const results = await Promise.allSettled([chauffeurPromise, clientPromise]);
+
+      if (results[0].status === "fulfilled") {
+        console.log("✅ Email chauffeur envoyé");
+      } else {
+        console.error("❌ Erreur email chauffeur:", results[0].reason);
+      }
+      if (results[1].status === "fulfilled") {
+        console.log("✅ Email confirmation client envoyé");
+      } else {
+        console.error("❌ Erreur email client:", results[1].reason);
       }
     } else {
-      console.warn("⚠️ Resend non configuré (RESEND_API_KEY manquant) - Email non envoyé");
+      console.warn("⚠️ Resend non configuré (RESEND_API_KEY manquant)");
     }
 
     return NextResponse.json({
@@ -72,93 +83,103 @@ interface ContactData {
   message: string;
 }
 
-function generateContactEmailTemplate(data: ContactData): string {
-  return `
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nouveau message contact - Taxi 02 Strasbourg</title>
-</head>
-<body style="margin: 0; padding: 0; background-color: #FFF9F5; font-family: 'Segoe UI', Arial, sans-serif;">
-  <table width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 0 auto; background-color: #FFFFFF;">
+function generateNotificationEmail(data: ContactData): string {
+  return `<!DOCTYPE html>
+<html><head><meta charset="utf-8"></head>
+<body style="font-family:Arial,sans-serif;background:#F4F6FA;margin:0;padding:20px;">
+  <div style="max-width:600px;margin:0 auto;background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+    <div style="background:#0A1628;padding:30px;text-align:center;">
+      <h1 style="color:#FFB800;margin:0;font-size:24px;">TAXI <span style="color:#ffffff">02</span></h1>
+      <p style="color:#ffffff;margin:8px 0 0;font-size:14px;">Strasbourg — Nouvelle demande reçue</p>
+    </div>
+    <div style="padding:30px;">
+      <div style="margin-bottom:16px;border-bottom:1px solid #F4F6FA;padding-bottom:16px;">
+        <div style="font-size:12px;color:#6B7A99;text-transform:uppercase;font-weight:bold;margin-bottom:4px;">Client</div>
+        <div style="font-size:16px;color:#0A1628;font-weight:500;">${data.nom}</div>
+      </div>
+      <div style="margin-bottom:16px;border-bottom:1px solid #F4F6FA;padding-bottom:16px;">
+        <div style="font-size:12px;color:#6B7A99;text-transform:uppercase;font-weight:bold;margin-bottom:4px;">Téléphone</div>
+        <div style="font-size:16px;color:#0A1628;font-weight:500;">${data.telephone || "Non renseigné"}</div>
+      </div>
+      <div style="margin-bottom:16px;border-bottom:1px solid #F4F6FA;padding-bottom:16px;">
+        <div style="font-size:12px;color:#6B7A99;text-transform:uppercase;font-weight:bold;margin-bottom:4px;">Email</div>
+        <div style="font-size:16px;color:#0A1628;font-weight:500;">${data.email}</div>
+      </div>
+      <div style="margin-bottom:16px;border-bottom:1px solid #F4F6FA;padding-bottom:16px;">
+        <div style="font-size:12px;color:#6B7A99;text-transform:uppercase;font-weight:bold;margin-bottom:4px;">Type de demande</div>
+        <div style="font-size:16px;color:#0A1628;font-weight:500;">${data.sujet || "Contact général"}</div>
+      </div>
+      <div style="margin-bottom:16px;border-bottom:1px solid #F4F6FA;padding-bottom:16px;">
+        <div style="font-size:12px;color:#6B7A99;text-transform:uppercase;font-weight:bold;margin-bottom:4px;">Départ</div>
+        <div style="font-size:16px;color:#0A1628;font-weight:500;">Non renseigné</div>
+      </div>
+      <div style="margin-bottom:16px;border-bottom:1px solid #F4F6FA;padding-bottom:16px;">
+        <div style="font-size:12px;color:#6B7A99;text-transform:uppercase;font-weight:bold;margin-bottom:4px;">Destination</div>
+        <div style="font-size:16px;color:#0A1628;font-weight:500;">Non renseigné</div>
+      </div>
+      <div style="margin-bottom:16px;border-bottom:1px solid #F4F6FA;padding-bottom:16px;">
+        <div style="font-size:12px;color:#6B7A99;text-transform:uppercase;font-weight:bold;margin-bottom:4px;">Date &amp; Heure</div>
+        <div style="font-size:16px;color:#0A1628;font-weight:500;">Non renseigné</div>
+      </div>
+      <div style="margin-bottom:16px;border-bottom:1px solid #F4F6FA;padding-bottom:16px;">
+        <div style="font-size:12px;color:#6B7A99;text-transform:uppercase;font-weight:bold;margin-bottom:4px;">Message</div>
+        <div style="font-size:16px;color:#0A1628;font-weight:500;white-space:pre-wrap;">${data.message}</div>
+      </div>
+      <a href="tel:${data.telephone || "+33753145371"}" style="background:#FFB800;color:#0A1628;padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:bold;display:inline-block;margin-top:20px;">Appeler le client</a>
+    </div>
+    <div style="background:#0A1628;padding:20px;text-align:center;color:#6B7A99;font-size:12px;">
+      Taxi 02 Strasbourg • contact@taxi-02-strasbourg.fr • 07 53 14 53 71
+    </div>
+  </div>
+</body></html>`;
+}
 
-    <!-- Header -->
-    <tr>
-      <td style="padding: 30px; text-align: center; background: linear-gradient(135deg, #7A3345 0%, #5C1A2A 100%);">
-        <h1 style="color: #FFFFFF; margin: 0; font-size: 24px; font-weight: bold;">📧 NOUVEAU MESSAGE CONTACT</h1>
-        <p style="color: #E8AEBE; margin: 10px 0 0; font-size: 14px;">Via le site web Taxi 02 Strasbourg</p>
-      </td>
-    </tr>
-
-    <!-- Infos expéditeur -->
-    <tr>
-      <td style="padding: 25px 30px; border-bottom: 2px solid #7A3345;">
-        <h2 style="color: #7A3345; margin: 0 0 15px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">👤 Expéditeur</h2>
-        <table width="100%" cellpadding="0" cellspacing="0">
-          <tr>
-            <td style="padding: 8px 0;">
-              <span style="color: #888888; font-size: 13px;">Nom :</span>
-              <span style="color: #2D1F24; font-size: 16px; font-weight: bold; margin-left: 10px;">${data.nom}</span>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding: 8px 0;">
-              <span style="color: #888888; font-size: 13px;">Email :</span>
-              <a href="mailto:${data.email}" style="color: #7A3345; font-size: 14px; margin-left: 10px; text-decoration: none;">${data.email}</a>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding: 8px 0;">
-              <span style="color: #888888; font-size: 13px;">Téléphone :</span>
-              ${data.telephone
-                ? `<a href="tel:${data.telephone}" style="color: #7A3345; font-size: 16px; font-weight: bold; margin-left: 10px; text-decoration: none;">${data.telephone}</a>`
-                : '<span style="color: #888888; font-size: 14px; margin-left: 10px;">Non renseigné</span>'
-              }
-            </td>
-          </tr>
-          ${data.sujet ? `
-          <tr>
-            <td style="padding: 8px 0;">
-              <span style="color: #888888; font-size: 13px;">Sujet :</span>
-              <span style="color: #2D1F24; font-size: 14px; font-weight: 500; margin-left: 10px;">${data.sujet}</span>
-            </td>
-          </tr>
-          ` : ""}
-        </table>
-      </td>
-    </tr>
-
-    <!-- Message -->
-    <tr>
-      <td style="padding: 25px 30px;">
-        <h2 style="color: #7A3345; margin: 0 0 15px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">💬 Message</h2>
-        <div style="background-color: #F5EEEA; padding: 20px; border-radius: 8px; border-left: 4px solid #7A3345;">
-          <p style="color: #2D1F24; margin: 0; font-size: 14px; line-height: 1.6; white-space: pre-wrap;">${data.message}</p>
-        </div>
-      </td>
-    </tr>
-
-    <!-- Bouton répondre -->
-    <tr>
-      <td style="padding: 10px 30px 40px; text-align: center;">
-        <a href="mailto:${data.email}?subject=Re: ${data.sujet || "Votre message"} - Taxi 02 Strasbourg" style="display: inline-block; background: linear-gradient(135deg, #7A3345 0%, #5C1A2A 100%); color: #FFFFFF; text-decoration: none; font-size: 16px; font-weight: bold; padding: 15px 40px; border-radius: 8px;">
-          ✉️ Répondre au client
-        </a>
-      </td>
-    </tr>
-
-    <!-- Footer -->
-    <tr>
-      <td style="padding: 20px; text-align: center; background-color: #FFF9F5; border-top: 1px solid #E8DDD8;">
-        <p style="color: #888888; margin: 0; font-size: 12px;">
-          Email automatique - Taxi 02 Strasbourg Formulaire de contact
+function generateConfirmationEmail(data: ContactData): string {
+  return `<!DOCTYPE html>
+<html><head><meta charset="utf-8"></head>
+<body style="font-family:Arial,sans-serif;background:#F4F6FA;margin:0;padding:20px;">
+  <div style="max-width:600px;margin:0 auto;background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.1);">
+    <div style="background:#0A1628;padding:30px;text-align:center;">
+      <h1 style="color:#FFB800;margin:0;font-size:24px;">TAXI <span style="color:#ffffff">02</span></h1>
+      <p style="color:#ffffff;margin:8px 0 0;font-size:14px;">Strasbourg — Confirmation de votre demande</p>
+    </div>
+    <div style="padding:30px;">
+      <div style="background:#F4F6FA;border-left:4px solid #FFB800;padding:16px 20px;border-radius:0 8px 8px 0;margin-bottom:24px;">
+        <p style="margin:0;color:#0A1628;font-size:15px;line-height:1.6;">
+          Bonjour <strong>${data.nom}</strong>,<br><br>
+          Nous avons bien reçu votre demande et nous vous recontacterons
+          dans les plus brefs délais pour confirmer votre course.<br><br>
+          En cas d'urgence, n'hésitez pas à nous appeler directement.
         </p>
-      </td>
-    </tr>
-  </table>
-</body>
-</html>
-  `.trim();
+      </div>
+      <div style="margin-bottom:24px;">
+        <div style="font-size:13px;color:#6B7A99;text-transform:uppercase;font-weight:bold;margin-bottom:12px;">Récapitulatif de votre demande</div>
+        <div style="margin-bottom:10px;">
+          <div style="font-size:12px;color:#6B7A99;">Type de demande</div>
+          <div style="font-size:15px;color:#0A1628;font-weight:500;">${data.sujet || "Contact général"}</div>
+        </div>
+        <div style="margin-bottom:10px;">
+          <div style="font-size:12px;color:#6B7A99;">Départ</div>
+          <div style="font-size:15px;color:#0A1628;font-weight:500;">Non renseigné</div>
+        </div>
+        <div style="margin-bottom:10px;">
+          <div style="font-size:12px;color:#6B7A99;">Destination</div>
+          <div style="font-size:15px;color:#0A1628;font-weight:500;">Non renseigné</div>
+        </div>
+        <div style="margin-bottom:10px;">
+          <div style="font-size:12px;color:#6B7A99;">Date &amp; Heure</div>
+          <div style="font-size:15px;color:#0A1628;font-weight:500;">Non renseigné</div>
+        </div>
+      </div>
+      <div style="background:#0A1628;border-radius:10px;padding:20px;text-align:center;margin-top:24px;">
+        <p style="color:#ffffff;margin:0 0 12px;font-size:14px;">Besoin d'une réponse immédiate ?</p>
+        <a href="tel:+33753145371" style="color:#FFB800;font-size:22px;font-weight:bold;text-decoration:none;">07 53 14 53 71</a>
+      </div>
+    </div>
+    <div style="background:#0A1628;padding:20px;text-align:center;color:#6B7A99;font-size:12px;">
+      Taxi 02 Strasbourg • contact@taxi-02-strasbourg.fr<br>
+      Disponible 24h/24 — 7j/7 • Conventionné CPAM
+    </div>
+  </div>
+</body></html>`;
 }
