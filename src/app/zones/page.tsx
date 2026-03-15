@@ -6,9 +6,12 @@ import { zones } from "@/config/zones";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Zones Desservies — Taxi Strasbourg & Eurométropole | Taxi 02 Strasbourg",
+  title: "Zones Desservies — Taxi Strasbourg & Eurométropole",
   description:
     "Découvrez toutes les zones desservies par Taxi 02 Strasbourg : 33 communes de l'Eurométropole de Strasbourg et 22 quartiers. Transport disponible 24h/24.",
+  alternates: {
+    canonical: "https://www.taxi-02-strasbourg.fr/zones",
+  },
 };
 
 export default function ZonesPage() {

@@ -3,7 +3,7 @@ import { zones } from "@/config/zones";
 import { trajets } from "@/config/trajets";
 import { etablissementsSante } from "@/config/etablissements-sante";
 
-const baseUrl = "https://taxi-02-strasbourg.fr";
+const baseUrl = "https://www.taxi-02-strasbourg.fr";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const currentDate = new Date().toISOString();
@@ -26,13 +26,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/tarifs`,
       lastModified: currentDate,
       changeFrequency: "monthly",
-      priority: 0.8,
+      priority: 0.7,
     },
     {
       url: `${baseUrl}/contact`,
       lastModified: currentDate,
       changeFrequency: "monthly",
-      priority: 0.8,
+      priority: 0.7,
     },
     {
       url: `${baseUrl}/taxi-conventionne`,
@@ -44,13 +44,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/faq`,
       lastModified: currentDate,
       changeFrequency: "monthly",
-      priority: 0.7,
+      priority: 0.6,
     },
     {
       url: `${baseUrl}/a-propos`,
       lastModified: currentDate,
       changeFrequency: "monthly",
-      priority: 0.6,
+      priority: 0.5,
     },
     {
       url: `${baseUrl}/transport-cpam`,
@@ -84,19 +84,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/services`,
       lastModified: currentDate,
       changeFrequency: "monthly",
-      priority: 0.8,
+      priority: 0.7,
     },
     {
       url: `${baseUrl}/services/transport-medical`,
       lastModified: currentDate,
       changeFrequency: "monthly",
-      priority: 0.8,
+      priority: 0.7,
     },
     {
       url: `${baseUrl}/services/transfert-aeroport`,
       lastModified: currentDate,
       changeFrequency: "monthly",
-      priority: 0.8,
+      priority: 0.7,
     },
     {
       url: `${baseUrl}/services/transfert-gare`,
@@ -130,13 +130,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/zones`,
       lastModified: currentDate,
       changeFrequency: "monthly",
-      priority: 0.8,
+      priority: 0.6,
     },
     ...zones.map((zone) => ({
       url: `${baseUrl}/zones/${zone.slug}`,
       lastModified: currentDate,
       changeFrequency: "monthly" as const,
-      priority: 0.7,
+      priority: 0.6,
     })),
   ];
 
@@ -172,25 +172,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/mentions-legales`,
       lastModified: currentDate,
       changeFrequency: "yearly",
-      priority: 0.3,
+      priority: 0.1,
     },
     {
       url: `${baseUrl}/confidentialite`,
       lastModified: currentDate,
       changeFrequency: "yearly",
-      priority: 0.3,
+      priority: 0.1,
     },
     {
       url: `${baseUrl}/cgv`,
       lastModified: currentDate,
       changeFrequency: "yearly",
-      priority: 0.3,
+      priority: 0.1,
     },
     {
       url: `${baseUrl}/cookies`,
       lastModified: currentDate,
       changeFrequency: "yearly",
-      priority: 0.3,
+      priority: 0.1,
     },
   ];
 

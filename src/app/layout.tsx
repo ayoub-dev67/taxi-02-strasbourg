@@ -25,10 +25,13 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Taxi 02 Strasbourg | Taxi & Transport CPAM",
-    template: "%s",
+    default: "Taxi 02 Strasbourg | Taxi Conventionné CPAM & Transport 24h/24",
+    template: "%s | Taxi 02 Strasbourg",
   },
-  description: "Taxi 02 Strasbourg — Transport CPAM conventionné, aéroport, gare, longue distance et EuropaPark. Réservation 24h/24.",
+  description: "Taxi 02 Strasbourg — Transport CPAM conventionné, transferts aéroport Entzheim & gare, longue distance, Europa-Park. Réservation 24h/24, 7j/7. Appelez le 07 53 14 53 71.",
+  alternates: {
+    canonical: "https://www.taxi-02-strasbourg.fr",
+  },
   keywords: siteConfig.keywords,
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
@@ -36,11 +39,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Taxi 02 Strasbourg | Taxi & Transport CPAM',
     description: 'Taxi 02 Strasbourg — Transport CPAM conventionné, aéroport, gare, longue distance et EuropaPark. Réservation 24h/24.',
-    url: 'https://taxi-02-strasbourg.fr',
+    url: 'https://www.taxi-02-strasbourg.fr',
     siteName: 'Taxi 02 Strasbourg',
     images: [
       {
-        url: 'https://taxi-02-strasbourg.fr/images/vehicule/vehicule-parlement-europeen.png',
+        url: 'https://www.taxi-02-strasbourg.fr/images/vehicule/vehicule-parlement-europeen.png',
         width: 1200,
         height: 630,
         alt: 'Taxi 02 Strasbourg — Flotte de taxis devant le Parlement Européen',
@@ -53,7 +56,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Taxi 02 Strasbourg | Taxi & Transport CPAM',
     description: 'Taxi 02 Strasbourg — Transport CPAM conventionné, aéroport, gare, longue distance et EuropaPark.',
-    images: ['https://taxi-02-strasbourg.fr/images/vehicule/vehicule-parlement-europeen.png'],
+    images: ['https://www.taxi-02-strasbourg.fr/images/vehicule/vehicule-parlement-europeen.png'],
   },
   robots: {
     index: true,
@@ -97,10 +100,6 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <head>
-        {/* Preconnect to Google Fonts */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-
         {/* Local SEO Meta Tags */}
         <meta name="geo.region" content="FR-67" />
         <meta name="geo.placename" content="Strasbourg" />

@@ -4,6 +4,9 @@ import { siteConfig } from "@/config/site";
 export const metadata: Metadata = {
   title: "Conditions Générales de Vente",
   description: "Conditions générales de vente et d'utilisation des services Taxi 02 Strasbourg.",
+  alternates: {
+    canonical: "https://www.taxi-02-strasbourg.fr/cgv",
+  },
 };
 
 export default function CGVPage() {

@@ -4,6 +4,9 @@ import { siteConfig } from "@/config/site";
 export const metadata: Metadata = {
   title: "Mentions Légales",
   description: "Mentions légales du site Taxi 02 Strasbourg.",
+  alternates: {
+    canonical: "https://www.taxi-02-strasbourg.fr/mentions-legales",
+  },
 };
 
 export default function MentionsLegalesPage() {

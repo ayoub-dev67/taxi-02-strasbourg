@@ -4,6 +4,9 @@ import { siteConfig } from "@/config/site";
 export const metadata: Metadata = {
   title: "Politique de Cookies",
   description: "Politique d'utilisation des cookies sur le site Taxi 02 Strasbourg.",
+  alternates: {
+    canonical: "https://www.taxi-02-strasbourg.fr/cookies",
+  },
 };
 
 export default function CookiesPage() {

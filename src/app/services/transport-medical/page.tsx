@@ -30,9 +30,12 @@ import { SchemaMarkup } from "@/components/shared/SchemaMarkup";
 import { etablissementsSante } from "@/config/etablissements-sante";
 
 export const metadata: Metadata = {
-  title: "Transport Médical VSL",
+  title: "Transport Médical VSL — Taxi Conventionné CPAM",
   description:
     "Taxi conventionné CPAM à Strasbourg. Transport médical VSL pris en charge par la Sécurité Sociale : dialyse, chimiothérapie, consultations, hospitalisations.",
+  alternates: {
+    canonical: "https://www.taxi-02-strasbourg.fr/services/transport-medical",
+  },
 };
 
 const transportTypes = [

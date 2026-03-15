@@ -54,7 +54,7 @@ export default async function TrajetPage({ params }: PageProps) {
     notFound();
   }
 
-  const baseUrl = "https://taxi-02-strasbourg.fr";
+  const baseUrl = "https://www.taxi-02-strasbourg.fr";
 
   // Schema BreadcrumbList
   const breadcrumbSchema = {

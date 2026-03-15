@@ -13,9 +13,12 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Services Taxi Strasbourg — Transport Médical, Aéroport, Gare | Taxi 02 Strasbourg",
+  title: "Services Taxi Strasbourg — Transport Médical, Aéroport, Gare",
   description:
     "Découvrez tous nos services de taxi à Strasbourg : transport médical VSL conventionné CPAM, transferts aéroport et gare, transport de colis, service entreprise. Disponible 24h/24.",
+  alternates: {
+    canonical: "https://www.taxi-02-strasbourg.fr/services",
+  },
 };
 
 const services = [

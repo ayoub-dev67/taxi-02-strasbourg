@@ -1,6 +1,6 @@
 import { siteConfig } from "@/config/site";
 
-const baseUrl = "https://taxi-02-strasbourg.fr";
+const baseUrl = "https://www.taxi-02-strasbourg.fr";
 
 // Schema LocalBusiness + TaxiService combiné avec PriceSpecification
 const localBusinessSchema = {
@@ -10,10 +10,9 @@ const localBusinessSchema = {
   name: siteConfig.name,
   description: "Taxi conventionné CPAM à Strasbourg. Transport médical, transferts aéroport et gare, longue distance, Europa-Park. Disponible 24h/24, 7j/7.",
   url: baseUrl,
-  telephone: siteConfig.contact.phone,
+  telephone: "+33753145371",
   email: siteConfig.contact.email,
-  taxID: "[À COMPLÉTER]",
-  image: `${baseUrl}/images/og-image.jpg`,
+  image: `${baseUrl}/images/vehicule/vehicule-parlement-europeen.png`,
   logo: `${baseUrl}/images/logo.svg`,
   priceRange: "€€",
   currenciesAccepted: "EUR",
@@ -22,7 +21,7 @@ const localBusinessSchema = {
     "@type": "PostalAddress",
     streetAddress: "Strasbourg",
     addressLocality: siteConfig.location.city,
-    postalCode: "67200",
+    postalCode: "67000",
     addressCountry: "FR",
     addressRegion: siteConfig.location.region,
   },
@@ -31,14 +30,16 @@ const localBusinessSchema = {
     latitude: 48.5734,
     longitude: 7.7521,
   },
+  hasMap: "https://www.openstreetmap.org/?mlat=48.5734&mlon=7.7521#map=14/48.5734/7.7521",
   areaServed: [
     { "@type": "City", name: "Strasbourg" },
     { "@type": "City", name: "Schiltigheim" },
+    { "@type": "City", name: "Bischheim" },
     { "@type": "City", name: "Illkirch-Graffenstaden" },
+    { "@type": "City", name: "Hœnheim" },
     { "@type": "City", name: "Lingolsheim" },
     { "@type": "City", name: "Haguenau" },
     { "@type": "City", name: "Colmar" },
-    { "@type": "AdministrativeArea", name: "CUS Strasbourg" },
     { "@type": "AdministrativeArea", name: "Eurométropole de Strasbourg" },
     { "@type": "AdministrativeArea", name: "Bas-Rhin" },
     { "@type": "AdministrativeArea", name: "Alsace" },

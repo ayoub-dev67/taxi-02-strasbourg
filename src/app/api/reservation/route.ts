@@ -405,7 +405,7 @@ function generateClientEmailTemplate(data: EmailData): string {
         <p style="color: #888888; margin: 0 0 15px; font-size: 12px;">
           Taxi Conventionné CPAM • Strasbourg et environs
         </p>
-        <a href="https://taxi-02-strasbourg.fr" style="color: #7A3345; font-size: 12px;">taxi-02-strasbourg.fr</a>
+        <a href="https://www.taxi-02-strasbourg.fr" style="color: #7A3345; font-size: 12px;">taxi-02-strasbourg.fr</a>
       </td>
     </tr>
   </table>

@@ -20,9 +20,12 @@ import { SchemaMarkup } from "@/components/shared/SchemaMarkup";
 
 export const metadata: Metadata = {
   title:
-    "Taxi Strasbourg — Europa-Park Rust | Transfert direct 45 min | Taxi 02 Strasbourg",
+    "Taxi Strasbourg — Europa-Park Rust | Transfert direct 45 min",
   description:
     "Transfert taxi Strasbourg Europa-Park en 45 min. Véhicule spacieux idéal familles, dépose devant l'entrée, aller-retour possible. Taxi 02 Strasbourg, réservez maintenant.",
+  alternates: {
+    canonical: "https://www.taxi-02-strasbourg.fr/europapark",
+  },
 };
 
 const avantages = [

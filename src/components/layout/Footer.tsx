@@ -28,14 +28,10 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <Link href="/" className="inline-block">
-              <Image
-                src="/images/logo.svg"
-                alt="Taxi 02 Strasbourg — Taxi conventionné Strasbourg"
-                width={120}
-                height={40}
-                className="h-10 w-auto"
-              />
+            <Link href="/" className="flex items-center gap-1 select-none" aria-label="Taxi 02 Strasbourg — accueil">
+              <span className="text-2xl font-extrabold tracking-wide text-[#FFB800]">TAXI</span>
+              <span className="text-2xl font-extrabold tracking-wide ml-1 text-white">02</span>
+              <span className="hidden sm:block text-[10px] font-medium tracking-[0.2em] uppercase ml-2 self-end pb-0.5 text-[#94A3B8]">Strasbourg</span>
             </Link>
             <p className="text-gray-600 text-sm leading-relaxed">
               Taxi conventionné CPAM à Strasbourg. Transport médical,
@@ -43,13 +39,20 @@ export function Footer() {
             </p>
 
             {/* Logo Assurance Maladie */}
-            <div className="pt-2">
+            <div className="pt-2 flex items-center gap-3">
               <Image
                 src="/images/assurance-maladie-logo-png.png"
                 alt="Conventionné Assurance Maladie CPAM"
-                width={100}
-                height={40}
-                className="h-8 w-auto opacity-80"
+                width={120}
+                height={60}
+                style={{ objectFit: "contain" }}
+              />
+              <Image
+                src="/images/service-medical.jpg"
+                alt="Taxi conventionné Assurance Maladie Strasbourg"
+                width={70}
+                height={70}
+                style={{ objectFit: "contain" }}
               />
             </div>
             <div className="flex items-center gap-4">

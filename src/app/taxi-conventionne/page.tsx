@@ -16,9 +16,12 @@ import {
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Taxi Conventionné CPAM Strasbourg — Taxi 02 Strasbourg | Transport Médical VSL",
+  title: "Taxi Conventionné CPAM Strasbourg — Transport Médical VSL",
   description:
     "Taxi conventionné CPAM à Strasbourg. Transport médical VSL, toutes distances. Taxi 02 Strasbourg, disponible 24h/24.",
+  alternates: {
+    canonical: "https://www.taxi-02-strasbourg.fr/taxi-conventionne",
+  },
 };
 
 const steps = [

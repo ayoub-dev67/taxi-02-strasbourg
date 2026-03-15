@@ -85,7 +85,7 @@ export function Header() {
                         className={cn(
                           "flex items-center gap-1 px-4 py-2 rounded-lg transition-all duration-200",
                           isActive || pathname.startsWith("/services")
-                            ? "text-gold-400"
+                            ? "text-[#0A1628] font-semibold"
                             : !isScrolled && isHomepage
                               ? "text-white/90 hover:text-white"
                               : "text-foreground/80 hover:text-foreground hover:bg-gray-100"
@@ -117,7 +117,7 @@ export function Header() {
                                 className={cn(
                                   "block px-4 py-3 transition-all duration-200",
                                   pathname === service.href
-                                    ? "bg-gold-50 text-gold-400"
+                                    ? "bg-gold-50 text-[#0A1628] font-semibold border-l-2 border-[#FFB800]"
                                     : "text-foreground/80 hover:text-foreground hover:bg-gray-100"
                                 )}
                               >
@@ -138,7 +138,7 @@ export function Header() {
                     className={cn(
                       "px-4 py-2 rounded-lg transition-all duration-200",
                       isActive
-                        ? "text-gold-400"
+                        ? "text-[#0A1628] font-semibold"
                         : !isScrolled && isHomepage
                           ? "text-white/90 hover:text-white"
                           : "text-foreground/80 hover:text-foreground hover:bg-gray-100"
@@ -169,6 +169,8 @@ export function Header() {
               onClick={() => setIsMobileMenuOpen(true)}
               className={cn("lg:hidden touch-target", !isScrolled && isHomepage ? "text-white" : "text-foreground")}
               aria-label="Ouvrir le menu"
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-menu"
             >
               <Menu className="w-6 h-6" />
             </button>
@@ -180,6 +182,7 @@ export function Header() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
+            id="mobile-menu"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -216,7 +219,7 @@ export function Header() {
                       className={cn(
                         "flex items-center gap-4 p-4 rounded-lg transition-colors duration-200",
                         isActive
-                          ? "bg-gold-50 text-gold-400 border border-gold-400/30"
+                          ? "bg-gold-50 text-[#0A1628] font-semibold border-l-4 border-[#FFB800]"
                           : "text-foreground active:bg-gray-100"
                       )}
                     >

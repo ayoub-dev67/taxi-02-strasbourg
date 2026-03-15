@@ -4,9 +4,12 @@ import { UrgencyBadges } from "@/components/shared/UrgencyBadges";
 import { TrustBadgesCompact } from "@/components/shared/TrustBadges";
 
 export const metadata: Metadata = {
-  title: "Réserver un Taxi à Strasbourg — Taxi 02 Strasbourg | Réponse en 5 min",
+  title: "Réserver un Taxi à Strasbourg — Réponse en 5 min",
   description:
     "Réservez votre taxi à Strasbourg en quelques clics. Transport médical, transfert aéroport, courses toutes distances. Disponible 24h/24. Réponse en 5 minutes.",
+  alternates: {
+    canonical: "https://www.taxi-02-strasbourg.fr/reservation",
+  },
 };
 
 export default function ReservationPage() {

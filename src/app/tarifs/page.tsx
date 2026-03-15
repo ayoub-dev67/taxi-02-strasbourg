@@ -5,9 +5,12 @@ import { Info, Sun, Moon, Calculator } from "lucide-react";
 import { TARIFS_PREFECTURE_67 } from "@/lib/pricing";
 
 export const metadata: Metadata = {
-  title: "Tarifs Taxi Strasbourg 2026 — Tarifs Préfectoraux Bas-Rhin | Taxi 02 Strasbourg",
+  title: "Tarifs Taxi Strasbourg 2026 — Tarifs Préfectoraux Bas-Rhin",
   description:
     "Consultez les tarifs officiels des taxis à Strasbourg. Tarifs réglementés par la Préfecture du Bas-Rhin. Transparence totale sur les prix. Taxi 02 Strasbourg.",
+  alternates: {
+    canonical: "https://www.taxi-02-strasbourg.fr/tarifs",
+  },
 };
 
 export default function TarifsPage() {

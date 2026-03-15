@@ -4,6 +4,9 @@ import { siteConfig } from "@/config/site";
 export const metadata: Metadata = {
   title: "Politique de Confidentialité",
   description: "Politique de confidentialité et protection des données personnelles de Taxi 02 Strasbourg.",
+  alternates: {
+    canonical: "https://www.taxi-02-strasbourg.fr/confidentialite",
+  },
 };
 
 export default function ConfidentialitePage() {

@@ -4,7 +4,7 @@ export const siteConfig = {
   name: "Taxi 02 Strasbourg",
   nameGoogle: "Taxi 02 Strasbourg",
   description: "Taxi conventionné CPAM à Strasbourg. Transport médical, transferts aéroport et gare, longue distance, Europa-Park. Disponible 24h/24, 7j/7.",
-  url: "https://taxi-02-strasbourg.fr",
+  url: "https://www.taxi-02-strasbourg.fr",
 
   // Coordonnées
   contact: {

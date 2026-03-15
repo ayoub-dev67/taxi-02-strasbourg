@@ -19,9 +19,12 @@ import { SchemaMarkup } from "@/components/shared/SchemaMarkup";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Questions Fréquentes",
+  title: "Questions Fréquentes — FAQ Taxi Strasbourg",
   description:
     "Trouvez les réponses à vos questions sur nos services de taxi à Strasbourg. Réservation, tarifs, transport médical et plus.",
+  alternates: {
+    canonical: "https://www.taxi-02-strasbourg.fr/faq",
+  },
 };
 
 const faqCategories = [

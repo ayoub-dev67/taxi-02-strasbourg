@@ -18,9 +18,12 @@ import { SchemaMarkup } from "@/components/shared/SchemaMarkup";
 
 export const metadata: Metadata = {
   title:
-    "Transfert Aéroport & Gare Strasbourg — EuroAirport, Entzheim | Taxi 02 Strasbourg",
+    "Transfert Aéroport & Gare Strasbourg — EuroAirport, Entzheim",
   description:
     "Transfert taxi vers EuroAirport Bâle-Mulhouse, aéroport Strasbourg-Entzheim et Gare de Strasbourg. Ponctualité garantie, suivi des vols, aide aux bagages. Taxi 02 Strasbourg, disponible 24h/24.",
+  alternates: {
+    canonical: "https://www.taxi-02-strasbourg.fr/aeroport-gare",
+  },
 };
 
 const destinations = [
@@ -198,7 +201,7 @@ export default function AeroportGarePage() {
         {/* Hero image */}
         <div className="relative mt-12 mx-auto max-w-3xl rounded-2xl overflow-hidden aspect-video">
           <Image
-            src="/images/vehicule/vehicule-parlement-europeen.jpg"
+            src="/images/vehicule/vehicule-parlement-europeen.png"
             alt="Taxi Strasbourg aéroport — transfert depuis le Parlement Européen"
             fill
             style={{ objectFit: 'cover' }}
@@ -254,7 +257,7 @@ export default function AeroportGarePage() {
         {/* Gare image */}
         <div className="relative mb-16 mx-auto max-w-3xl rounded-2xl overflow-hidden aspect-video">
           <Image
-            src="/images/vehicule/vehicule-gare.jpg"
+            src="/images/vehicule/vehicule-gare.png"
             alt="Taxi Strasbourg gare — transfert vers la Gare de Strasbourg"
             fill
             style={{ objectFit: 'cover' }}

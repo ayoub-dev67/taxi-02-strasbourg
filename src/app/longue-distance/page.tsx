@@ -15,9 +15,12 @@ import { SchemaMarkup } from "@/components/shared/SchemaMarkup";
 
 export const metadata: Metadata = {
   title:
-    "Taxi Longue Distance Strasbourg — Alsace, France entière | Taxi 02 Strasbourg",
+    "Taxi Longue Distance Strasbourg — Alsace, France entière",
   description:
     "Taxi longue distance au départ de Strasbourg. Trajets vers toute l'Alsace, la France entière et l'international. Tarif convenu à l'avance, confort garanti. Taxi 02 Strasbourg, disponible 24h/24.",
+  alternates: {
+    canonical: "https://www.taxi-02-strasbourg.fr/longue-distance",
+  },
 };
 
 const popularRoutes = [

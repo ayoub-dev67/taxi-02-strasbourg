@@ -58,7 +58,7 @@ export default async function ZonePage({ params }: PageProps) {
   // Récupérer les zones proches pour le maillage SEO
   const relatedZones = getRelatedZones(slug, 6);
 
-  const baseUrl = "https://taxi-02-strasbourg.fr";
+  const baseUrl = "https://www.taxi-02-strasbourg.fr";
 
   // Schema BreadcrumbList
   const breadcrumbSchema = {

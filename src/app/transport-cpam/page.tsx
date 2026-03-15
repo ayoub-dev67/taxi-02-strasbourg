@@ -21,9 +21,12 @@ import { SchemaMarkup } from "@/components/shared/SchemaMarkup";
 
 export const metadata: Metadata = {
   title:
-    "Transport CPAM Strasbourg — Taxi Conventionné Sécurité Sociale | Taxi 02 Strasbourg",
+    "Transport CPAM Strasbourg — Taxi Conventionné Sécurité Sociale",
   description:
     "Transport médical conventionné CPAM à Strasbourg. Taxi VSL agréé Sécurité Sociale : dialyse, chimiothérapie, radiothérapie, consultations. Prise en charge directe, rien à avancer. Taxi 02 Strasbourg, disponible 24h/24.",
+  alternates: {
+    canonical: "https://www.taxi-02-strasbourg.fr/transport-cpam",
+  },
 };
 
 const transportTypes = [
@@ -192,7 +195,7 @@ export default function TransportCPAMPage() {
         {/* Hero image */}
         <div className="relative mt-12 mx-auto max-w-3xl rounded-2xl overflow-hidden aspect-video">
           <Image
-            src="/images/vehicule/vehicule-urgences.jpg"
+            src="/images/vehicule/vehicule-urgences.png"
             alt="Taxi conventionné CPAM Strasbourg — transport médical VSL"
             fill
             style={{ objectFit: 'cover' }}

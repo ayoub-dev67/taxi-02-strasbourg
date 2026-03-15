@@ -5,9 +5,12 @@ import { trajets } from "@/config/trajets";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Trajets Populaires",
+  title: "Trajets Populaires au Départ de Strasbourg",
   description:
     "Découvrez nos trajets taxi les plus demandés au départ de Strasbourg : aéroport, gare, Colmar, Europa-Park, Paris. Prix et durées indicatifs.",
+  alternates: {
+    canonical: "https://www.taxi-02-strasbourg.fr/trajets",
+  },
 };
 
 export default function TrajetsPage() {

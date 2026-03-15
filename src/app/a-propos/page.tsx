@@ -17,9 +17,12 @@ import {
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "À Propos",
+  title: "À Propos — Votre Chauffeur de Confiance",
   description:
     "Découvrez Taxi 02 Strasbourg, votre service de taxi conventionné à Strasbourg. Notre histoire, nos valeurs, notre engagement pour un transport de qualité.",
+  alternates: {
+    canonical: "https://www.taxi-02-strasbourg.fr/a-propos",
+  },
 };
 
 const values = [

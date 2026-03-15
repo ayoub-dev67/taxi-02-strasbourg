@@ -65,7 +65,7 @@ export default async function EtablissementPage({ params }: PageProps) {
   // Récupérer les établissements proches pour le maillage SEO
   const relatedEtablissements = getRelatedEtablissements(slug, 4);
 
-  const baseUrl = "https://taxi-02-strasbourg.fr";
+  const baseUrl = "https://www.taxi-02-strasbourg.fr";
 
   // Schema BreadcrumbList
   const breadcrumbSchema = {

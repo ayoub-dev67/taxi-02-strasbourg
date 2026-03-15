@@ -21,8 +21,8 @@ const services = [
       "Taxi conventionné CPAM pour vos rendez-vous médicaux. Prise en charge sur prescription.",
     href: "/services/transport-medical",
     badge: "Conventionné",
-    image: "/images/vehicule/vehicule-parlement-europeen.png",
-    imageAlt: "Taxi 02 Strasbourg — flotte devant le Parlement Européen",
+    image: "/images/vehicule/vehicule-urgences.png",
+    imageAlt: "Taxi 02 Strasbourg — véhicule devant les urgences, transport médical CPAM",
   },
   {
     icon: Plane,

@@ -1,13 +1,14 @@
 export default function Loading() {
   return (
-    <div className="min-h-screen bg-surface flex items-center justify-center">
+    <div className="min-h-screen bg-[#0A1628] flex items-center justify-center">
       <div className="text-center">
         {/* Logo */}
         <div className="mb-8">
           <span className="text-3xl font-heading font-bold">
-            <span className="text-foreground">TAXI</span>{" "}
-            <span className="text-gold-gradient">02</span>
+            <span className="text-[#FFB800]">TAXI</span>{" "}
+            <span className="text-white">02</span>
           </span>
+          <div className="text-[10px] font-medium tracking-[0.25em] uppercase text-white/70 mt-1">Strasbourg</div>
         </div>
 
         {/* Spinner */}
@@ -21,7 +22,7 @@ export default function Loading() {
         </div>
 
         {/* Text */}
-        <p className="text-gray-500 text-sm animate-pulse">
+        <p className="text-white/50 text-sm animate-pulse">
           Chargement...
         </p>
       </div>
