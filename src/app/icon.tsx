@@ -15,37 +15,24 @@ export default function Icon() {
       <div
         style={{
           fontSize: 20,
-          background: "#7A3345",
+          background: "#0A1628",
           width: "100%",
           height: "100%",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           borderRadius: "4px",
-          position: "relative",
         }}
       >
-        {/* Border */}
-        <div
-          style={{
-            position: "absolute",
-            inset: 1,
-            borderRadius: "3px",
-            border: "2px solid #FFFFFF",
-          }}
-        />
-        {/* SB Text */}
         <span
           style={{
-            fontFamily: "Georgia, serif",
-            fontWeight: 700,
-            fontSize: 16,
-            background: "linear-gradient(135deg, #FFFFFF, #FFFFFF, #F5EEEA)",
-            backgroundClip: "text",
-            color: "#FFFFFF",
+            fontFamily: "Arial Black, sans-serif",
+            fontWeight: 900,
+            fontSize: 18,
+            color: "#FFB800",
           }}
         >
-          SB
+          02
         </span>
       </div>
     ),

@@ -15,63 +15,25 @@ export default function AppleIcon() {
       <div
         style={{
           fontSize: 100,
-          background: "#7A3345",
+          background: "#0A1628",
           width: "100%",
           height: "100%",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           borderRadius: "36px",
-          position: "relative",
         }}
       >
-        {/* Border */}
-        <div
+        <span
           style={{
-            position: "absolute",
-            inset: 4,
-            borderRadius: "32px",
-            border: "4px solid #FFFFFF",
-          }}
-        />
-        {/* Inner ring */}
-        <div
-          style={{
-            position: "absolute",
-            inset: 16,
-            borderRadius: "24px",
-            border: "1px solid rgba(255, 255, 255, 0.3)",
-          }}
-        />
-        {/* SB Text */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "baseline",
-            gap: 2,
+            fontFamily: "Arial Black, sans-serif",
+            fontWeight: 900,
+            fontSize: 80,
+            color: "#FFB800",
           }}
         >
-          <span
-            style={{
-              fontFamily: "Georgia, serif",
-              fontWeight: 700,
-              fontSize: 72,
-              color: "#FFFFFF",
-            }}
-          >
-            S
-          </span>
-          <span
-            style={{
-              fontFamily: "Georgia, serif",
-              fontWeight: 700,
-              fontSize: 52,
-              color: "#FFFFFF",
-            }}
-          >
-            B
-          </span>
-        </div>
+          02
+        </span>
       </div>
     ),
     {

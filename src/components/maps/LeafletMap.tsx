@@ -151,13 +151,13 @@ export function LeafletMap({ origin, destination, route, className }: RouteMapPr
             <Marker position={destinationPosition} icon={destinationIcon} title="Arrivée" />
           )}
 
-          {/* Route polyline (bordeaux color) */}
+          {/* Route polyline */}
           {route && route.length > 0 && (
             <Polyline
               positions={route}
               pathOptions={{
-                color: "#7A3345",
-                weight: 4,
+                color: "#FFB800",
+                weight: 5,
                 opacity: 0.9,
               }}
             />
