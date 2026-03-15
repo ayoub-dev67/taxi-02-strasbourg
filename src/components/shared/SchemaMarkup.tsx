@@ -73,6 +73,13 @@ const localBusinessSchema = {
     },
   ],
   sameAs: [`https://wa.me/${siteConfig.contact.whatsapp.replace("+", "")}`],
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "5",
+    reviewCount: "6",
+    bestRating: "5",
+    worstRating: "1",
+  },
   review: [
     {
       "@type": "Review",
