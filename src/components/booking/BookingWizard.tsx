@@ -56,23 +56,30 @@ export function BookingWizard() {
     setData((prev) => ({ ...prev, ...newData }));
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const nextStep = () => {
     if (currentStep < 6) {
       const nextStepNum = currentStep + 1;
       trackReservationStep(nextStepNum, stepNames[nextStepNum - 1]);
       setCurrentStep(nextStepNum as BookingStep);
+      scrollToTop();
     }
   };
 
   const prevStep = () => {
     if (currentStep > 1) {
       setCurrentStep((prev) => (prev - 1) as BookingStep);
+      scrollToTop();
     }
   };
 
   const goToStep = (step: BookingStep) => {
     if (step < currentStep) {
       setCurrentStep(step);
+      scrollToTop();
     }
   };
 
@@ -99,6 +106,7 @@ export function BookingWizard() {
 
       setIsComplete(true);
       setCurrentStep(6);
+      scrollToTop();
     } catch (error) {
       console.error("Erreur:", error);
     } finally {
