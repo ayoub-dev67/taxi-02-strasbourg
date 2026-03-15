@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function InitialLoader() {
@@ -32,7 +31,7 @@ export function InitialLoader() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
-          className="fixed inset-0 z-[9999] bg-surface flex items-center justify-center"
+          className="fixed inset-0 z-[9999] bg-[#0A1628] flex items-center justify-center"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -61,20 +60,15 @@ export function InitialLoader() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
+                className="flex items-center justify-center gap-3"
               >
-                <Image
-                  src="/images/logo.svg"
-                  alt="Taxi 02 Strasbourg — Taxi conventionné Strasbourg"
-                  width={200}
-                  height={80}
-                  priority
-                  className="h-20 w-auto"
-                />
+                <span className="text-5xl font-extrabold tracking-wide text-[#FFB800]">TAXI</span>
+                <span className="text-5xl font-extrabold tracking-wide text-white">02</span>
               </motion.div>
 
               {/* Glow effect */}
               <motion.div
-                className="absolute inset-0 bg-gold-100 blur-3xl -z-10"
+                className="absolute inset-0 bg-[#FFB800]/10 blur-3xl -z-10"
                 animate={{
                   opacity: [0.3, 0.6, 0.3],
                   scale: [1, 1.2, 1],
@@ -97,7 +91,7 @@ export function InitialLoader() {
 
             {/* Texte de chargement */}
             <motion.p
-              className="mt-4 text-gray-500 text-sm"
+              className="mt-4 text-[#94A3B8] text-sm tracking-[0.2em] uppercase"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8, duration: 0.5 }}

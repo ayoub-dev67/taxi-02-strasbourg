@@ -8,7 +8,7 @@ export default function Loading() {
             <span className="text-[#FFB800]">TAXI</span>{" "}
             <span className="text-white">02</span>
           </span>
-          <div className="text-[10px] font-medium tracking-[0.25em] uppercase text-white/70 mt-1">Strasbourg</div>
+          <div className="text-[10px] font-medium tracking-[0.25em] uppercase text-[#94A3B8] mt-1">Strasbourg</div>
         </div>
 
         {/* Spinner */}
@@ -22,7 +22,7 @@ export default function Loading() {
         </div>
 
         {/* Text */}
-        <p className="text-white/50 text-sm animate-pulse">
+        <p className="text-[#94A3B8] text-sm animate-pulse">
           Chargement...
         </p>
       </div>
