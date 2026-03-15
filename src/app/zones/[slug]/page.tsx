@@ -298,25 +298,26 @@ export default async function ZonePage({ params }: PageProps) {
 
         {/* Photo section - Véhicule */}
         <section className="mb-12">
-          <div className="card-premium max-w-4xl mx-auto overflow-hidden p-0">
-            <div className="relative h-64 sm:h-80 md:h-96">
+          <div className="relative w-full min-h-[300px] md:min-h-[400px] overflow-hidden rounded-xl">
               <Image
                 src="/images/hero-bg.jpg"
                 alt={`Taxi 02 Strasbourg — service taxi ${zone.name}`}
                 fill
-                className="object-cover"
+                className="object-cover object-center"
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 896px"
+                priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                <h3 className="text-xl sm:text-2xl font-heading font-bold mb-2">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30" />
+              <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-10">
+                <h3 className="text-white font-bold text-xl sm:text-2xl md:text-3xl font-heading mb-2"
+                    style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
                   Véhicule grand coffre
                 </h3>
-                <p className="text-sm sm:text-base text-white/90">
+                <p className="text-white/90 text-sm sm:text-base"
+                   style={{ textShadow: '0 1px 4px rgba(0,0,0,0.8)' }}>
                   Grand coffre, transport scolaire, toutes distances — Vos trajets à {zone.name}
                 </p>
               </div>
-            </div>
           </div>
         </section>
 
