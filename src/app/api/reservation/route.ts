@@ -131,7 +131,7 @@ ${data.client.commentaire ? `\n📝 Commentaire: ${data.client.commentaire}` : "
         from: "Taxi 02 Strasbourg <contact@taxi-02-strasbourg.fr>",
         to: "taxi02strasbourg@gmail.com",
         replyTo: "contact@taxi-02-strasbourg.fr",
-        subject: `🚖 Nouvelle demande — ${data.client.prenom} ${data.client.nom}`,
+        subject: `🚖 Nouvelle réservation — ${data.client.prenom} ${data.client.nom}`,
         html: generateNotificationEmail(emailData),
       });
 
@@ -141,7 +141,7 @@ ${data.client.commentaire ? `\n📝 Commentaire: ${data.client.commentaire}` : "
             from: "Taxi 02 Strasbourg <contact@taxi-02-strasbourg.fr>",
             to: data.client.email,
             replyTo: "contact@taxi-02-strasbourg.fr",
-            subject: "✅ Demande reçue — Taxi 02 Strasbourg",
+            subject: "✅ Réservation confirmée — Taxi 02 Strasbourg",
             html: generateConfirmationEmail(emailData),
           })
         : Promise.resolve(null);
@@ -216,8 +216,15 @@ function generateNotificationEmail(data: EmailData): string {
   <div style="max-width:600px;margin:0 auto;background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.1);">
     <div style="background:#0A1628;padding:30px;text-align:center;">
       <h1 style="color:#FFB800;margin:0;font-size:24px;">TAXI <span style="color:#ffffff">02</span></h1>
-      <p style="color:#ffffff;margin:8px 0 0;font-size:14px;">Strasbourg — Nouvelle demande reçue</p>
+      <p style="color:#ffffff;margin:8px 0 0;font-size:14px;">Strasbourg — Nouvelle réservation reçue</p>
     </div>
+    ${data.prixEstime ? `<div style="background:#FFB800;padding:20px;text-align:center;">
+      <p style="margin:0;color:#0A1628;font-size:13px;font-weight:bold;text-transform:uppercase;letter-spacing:1px;">Estimation du prix</p>
+      <p style="margin:8px 0 0;color:#0A1628;font-size:42px;font-weight:900;line-height:1;">${data.prixEstime.toFixed(2)} €</p>
+      <p style="margin:4px 0 0;color:#0A1628;font-size:12px;opacity:0.7;">Tarif préfectoral estimé${data.distance ? ` — ${data.distance} km` : ""}</p>
+    </div>` : `<div style="background:#FFB800;padding:14px;text-align:center;">
+      <p style="margin:0;color:#0A1628;font-size:14px;">Prix calculé au compteur officiel</p>
+    </div>`}
     <div style="padding:30px;">
       <div style="margin-bottom:16px;border-bottom:1px solid #F4F6FA;padding-bottom:16px;">
         <div style="font-size:12px;color:#6B7A99;text-transform:uppercase;font-weight:bold;margin-bottom:4px;">Client</div>
@@ -256,11 +263,10 @@ function generateNotificationEmail(data: EmailData): string {
         <div style="font-size:12px;color:#6B7A99;text-transform:uppercase;font-weight:bold;margin-bottom:4px;">Options</div>
         <div style="font-size:16px;color:#0A1628;font-weight:500;">${data.options.siegeBebe ? "✅ Siège bébé " : ""}${data.options.fauteuilRoulant ? "✅ Fauteuil roulant" : ""}</div>
       </div>` : ""}
-      ${data.prixEstime ? `
       <div style="margin-bottom:16px;border-bottom:1px solid #F4F6FA;padding-bottom:16px;">
-        <div style="font-size:12px;color:#6B7A99;text-transform:uppercase;font-weight:bold;margin-bottom:4px;">Prix estimé</div>
-        <div style="font-size:16px;color:#0A1628;font-weight:500;">≈ ${data.prixEstime.toFixed(2)} €${data.distance ? ` (${data.distance} km)` : ""}</div>
-      </div>` : ""}
+        <div style="font-size:12px;color:#6B7A99;text-transform:uppercase;font-weight:bold;margin-bottom:4px;">💰 Prix estimé</div>
+        <div style="font-size:20px;color:#FFB800;font-weight:900;">${data.prixEstime ? `${data.prixEstime.toFixed(2)} €` : "Au compteur officiel"}</div>
+      </div>
       <div style="margin-bottom:16px;border-bottom:1px solid #F4F6FA;padding-bottom:16px;">
         <div style="font-size:12px;color:#6B7A99;text-transform:uppercase;font-weight:bold;margin-bottom:4px;">Message</div>
         <div style="font-size:16px;color:#0A1628;font-weight:500;white-space:pre-wrap;">${data.commentaire || "Non renseigné"}</div>
@@ -281,9 +287,16 @@ function generateConfirmationEmail(data: EmailData): string {
   <div style="max-width:600px;margin:0 auto;background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.1);">
     <div style="background:#0A1628;padding:30px;text-align:center;">
       <h1 style="color:#FFB800;margin:0;font-size:24px;">TAXI <span style="color:#ffffff">02</span></h1>
-      <p style="color:#ffffff;margin:8px 0 0;font-size:14px;">Strasbourg — Confirmation de votre demande</p>
+      <p style="color:#ffffff;margin:8px 0 0;font-size:14px;">Strasbourg — Confirmation de votre réservation</p>
     </div>
     <div style="padding:30px;">
+      ${data.prixEstime ? `<div style="background:#FFB800;border-radius:10px;padding:20px;text-align:center;margin-bottom:24px;">
+        <p style="margin:0;color:#0A1628;font-size:13px;font-weight:bold;text-transform:uppercase;letter-spacing:1px;">Votre estimation de prix</p>
+        <p style="margin:8px 0 0;color:#0A1628;font-size:48px;font-weight:900;line-height:1;">${data.prixEstime.toFixed(2)} €</p>
+        <p style="margin:4px 0 0;color:#0A1628;font-size:12px;">Tarif réglementé Préfecture du Bas-Rhin</p>
+      </div>` : `<div style="background:#FFB800;border-radius:10px;padding:14px;text-align:center;margin-bottom:24px;">
+        <p style="margin:0;color:#0A1628;font-size:14px;">Prix calculé au compteur officiel</p>
+      </div>`}
       <div style="background:#F4F6FA;border-left:4px solid #FFB800;padding:16px 20px;border-radius:0 8px 8px 0;margin-bottom:24px;">
         <p style="margin:0;color:#0A1628;font-size:15px;line-height:1.6;">
           Bonjour <strong>${data.clientName}</strong>,<br><br>

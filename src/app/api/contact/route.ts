@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
         from: "Taxi 02 Strasbourg <contact@taxi-02-strasbourg.fr>",
         to: "taxi02strasbourg@gmail.com",
         replyTo: "contact@taxi-02-strasbourg.fr",
-        subject: `🚖 Nouvelle demande — ${data.nom}`,
+        subject: `🚖 Nouvelle réservation — ${data.nom}`,
         html: generateNotificationEmail(data),
       });
 
@@ -42,7 +42,7 @@ export async function POST(request: NextRequest) {
         from: "Taxi 02 Strasbourg <contact@taxi-02-strasbourg.fr>",
         to: data.email,
         replyTo: "contact@taxi-02-strasbourg.fr",
-        subject: "✅ Demande reçue — Taxi 02 Strasbourg",
+        subject: "✅ Réservation confirmée — Taxi 02 Strasbourg",
         html: generateConfirmationEmail(data),
       });
 
@@ -90,7 +90,7 @@ function generateNotificationEmail(data: ContactData): string {
   <div style="max-width:600px;margin:0 auto;background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.1);">
     <div style="background:#0A1628;padding:30px;text-align:center;">
       <h1 style="color:#FFB800;margin:0;font-size:24px;">TAXI <span style="color:#ffffff">02</span></h1>
-      <p style="color:#ffffff;margin:8px 0 0;font-size:14px;">Strasbourg — Nouvelle demande reçue</p>
+      <p style="color:#ffffff;margin:8px 0 0;font-size:14px;">Strasbourg — Nouvelle réservation reçue</p>
     </div>
     <div style="padding:30px;">
       <div style="margin-bottom:16px;border-bottom:1px solid #F4F6FA;padding-bottom:16px;">
@@ -141,7 +141,7 @@ function generateConfirmationEmail(data: ContactData): string {
   <div style="max-width:600px;margin:0 auto;background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.1);">
     <div style="background:#0A1628;padding:30px;text-align:center;">
       <h1 style="color:#FFB800;margin:0;font-size:24px;">TAXI <span style="color:#ffffff">02</span></h1>
-      <p style="color:#ffffff;margin:8px 0 0;font-size:14px;">Strasbourg — Confirmation de votre demande</p>
+      <p style="color:#ffffff;margin:8px 0 0;font-size:14px;">Strasbourg — Confirmation de votre réservation</p>
     </div>
     <div style="padding:30px;">
       <div style="background:#F4F6FA;border-left:4px solid #FFB800;padding:16px 20px;border-radius:0 8px 8px 0;margin-bottom:24px;">
