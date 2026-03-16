@@ -16,14 +16,8 @@ interface Step2DateTimeProps {
   onPrev: () => void;
 }
 
-const timeSlots = [
-  "06:00", "06:30", "07:00", "07:30", "08:00", "08:30",
-  "09:00", "09:30", "10:00", "10:30", "11:00", "11:30",
-  "12:00", "12:30", "13:00", "13:30", "14:00", "14:30",
-  "15:00", "15:30", "16:00", "16:30", "17:00", "17:30",
-  "18:00", "18:30", "19:00", "19:30", "20:00", "20:30",
-  "21:00", "21:30", "22:00", "22:30", "23:00", "23:30",
-];
+const hours = Array.from({ length: 24 }, (_, i) => i.toString().padStart(2, "0"));
+const minutes = ["00", "05", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55"];
 
 export function Step2DateTime({ data, updateData, onNext, onPrev }: Step2DateTimeProps) {
   const [errors, setErrors] = useState<{ date?: string; heure?: string }>({});
@@ -141,26 +135,49 @@ export function Step2DateTime({ data, updateData, onNext, onPrev }: Step2DateTim
           Heure de prise en charge
         </label>
 
-        <div className="grid grid-cols-4 sm:grid-cols-6 gap-2 max-h-48 overflow-y-auto scrollbar-hide p-1">
-          {timeSlots.map((time) => (
-            <button
-              key={time}
-              type="button"
-              onClick={() => {
-                updateData({ heure: time });
-                setErrors((prev) => ({ ...prev, heure: undefined }));
-              }}
-              className={cn(
-                "py-2 px-3 rounded-lg text-sm font-medium transition-all",
-                data.heure === time
-                  ? "bg-gold-400 text-black"
-                  : "bg-surface-100 text-gray-700 border border-gold-400/20 hover:border-gold-400/50"
-              )}
-            >
-              {time}
-            </button>
-          ))}
+        <div className="flex items-center gap-3">
+          <select
+            value={data.heure?.split(":")[0] ?? ""}
+            onChange={(e) => {
+              const h = e.target.value;
+              const m = data.heure?.split(":")[1] || "00";
+              updateData({ heure: `${h}:${m}` });
+              setErrors((prev) => ({ ...prev, heure: undefined }));
+            }}
+            className="input-premium flex-1 text-center text-lg font-semibold appearance-none"
+            aria-label="Heure"
+          >
+            <option value="" disabled>HH</option>
+            {hours.map((h) => (
+              <option key={h} value={h}>{h}</option>
+            ))}
+          </select>
+
+          <span className="text-2xl font-bold text-gold-400">:</span>
+
+          <select
+            value={data.heure?.split(":")[1] ?? ""}
+            onChange={(e) => {
+              const h = data.heure?.split(":")[0] || "08";
+              const m = e.target.value;
+              updateData({ heure: `${h}:${m}` });
+              setErrors((prev) => ({ ...prev, heure: undefined }));
+            }}
+            className="input-premium flex-1 text-center text-lg font-semibold appearance-none"
+            aria-label="Minutes"
+          >
+            <option value="" disabled>MM</option>
+            {minutes.map((m) => (
+              <option key={m} value={m}>{m}</option>
+            ))}
+          </select>
         </div>
+
+        {data.heure && (
+          <p className="text-center text-sm text-gold-400 font-medium">
+            Prise en charge à {data.heure}
+          </p>
+        )}
         {errors.heure && <p className="text-red-400 text-sm">{errors.heure}</p>}
       </div>
 
