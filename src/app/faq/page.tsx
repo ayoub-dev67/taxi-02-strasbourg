@@ -36,7 +36,7 @@ const faqCategories = [
       {
         question: "Comment puis-je réserver un taxi ?",
         answer:
-          "Vous pouvez réserver par téléphone au +33 X XX XX XX XX, via WhatsApp, ou directement sur notre site web via le formulaire de réservation. Nous vous confirmons rapidement votre course.",
+          "Vous pouvez réserver par téléphone au 07 53 14 53 71, via WhatsApp, ou directement sur notre site web via le formulaire de réservation. Nous vous confirmons rapidement votre course.",
       },
       {
         question: "Combien de temps à l'avance dois-je réserver ?",

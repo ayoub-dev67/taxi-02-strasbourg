@@ -31,7 +31,7 @@ export default function manifest(): MetadataRoute.Manifest {
         name: "Appeler",
         short_name: "Appeler",
         description: "Appeler Taxi 02 Strasbourg",
-        url: "tel:+33XXXXXXXXX",
+        url: "tel:+33753145371",
         icons: [{ src: "/icons/icon-192x192.svg", sizes: "96x96" }],
       },
     ],

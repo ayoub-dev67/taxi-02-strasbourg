@@ -59,10 +59,10 @@ export default function ReservationPage() {
                   Appelez-nous pour une réservation immédiate
                 </p>
                 <a
-                  href="tel:+33XXXXXXXXX"
+                  href="tel:+33753145371"
                   className="btn-gold w-full flex items-center justify-center gap-2"
                 >
-                  📞 +33 X XX XX XX XX
+                  📞 07 53 14 53 71
                 </a>
               </div>
             </div>
